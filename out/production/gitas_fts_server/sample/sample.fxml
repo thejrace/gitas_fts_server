@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:controller="sample.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="301.0" prefWidth="270.0" style="-fx-background-color: #191919;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="29.0" layoutY="19.0" text="GİTAŞ FİLO TAKİP SİSTEMİ" textFill="#c310ba">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_orer" layoutX="41.0" layoutY="66.0" text="SON ORER: " textFill="WHITE" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_iys" layoutX="41.0" layoutY="96" text="SON IYS:" textFill="WHITE" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_mesaj" layoutX="41.0" layoutY="126" text="SON MESAJ:" textFill="WHITE" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_pdks" layoutX="41.0" layoutY="156" text="SON PDKS:" textFill="WHITE" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+
+      <Label fx:id="lbl_login" layoutX="41.0" layoutY="186" text="SON GİRİŞ:" textFill="WHITE" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+
+      <Label fx:id="lbl_aktif_gun" layoutX="41.0" layoutY="216" text="AKTİF GÜN:" textFill="WHITE" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
