@@ -10,6 +10,8 @@ import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -103,7 +105,22 @@ public class Common {
         if( hat_kodu.indexOf("Ö") > 0 ) hat_kodu = hat_kodu.replace("Ö", "O.");
         if( hat_kodu.indexOf("İ") > 0 ) hat_kodu = hat_kodu.replace("İ", "I.");
         return hat_kodu;
+    }
 
+    public static void exception_db_kayit( String hata ){
+        try {
+            Connection con = DBC.getInstance().getConnection();
+            PreparedStatement pst = con.prepareStatement("INSERT INTO " + GitasDBT.SUNUCU_APP_HATA_KAYITLARI + " ( etiket, hata, tarih, durum ) VALUES ( ?, ?, ?, ? )");
+            pst.setString(1, "SUNUCU EXCEPTION" );
+            pst.setString(2, hata );
+            pst.setString(3, Common.get_current_datetime_db() );
+            pst.setInt(4, 1 );
+            pst.executeUpdate();
+            pst.close();
+            con.close();
+        } catch( SQLException e ){
+            e.printStackTrace();
+        }
     }
 
     public static String regex_trim( String str ){
@@ -126,6 +143,11 @@ public class Common {
 
     public static String get_current_datetime(){
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+    public static String get_current_datetime_db(){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
         return dateFormat.format(date);
     }

@@ -22,27 +22,30 @@ import java.util.Map;
 public class Filo_Download implements Runnable {
 
     private ArrayList<String> otobusler = new ArrayList<>();
-    private boolean otobusler_cached = false,
-                    cookies_cached = false;
+    private boolean init_data_ok = false,
+                    login_ok = false;
     private Map<String, String> cookies = new HashMap<>();
-    private Connection con;
-    private PreparedStatement pst;
-    private ResultSet res;
+
     private Thread thread;
     private boolean aktif = true;
-    private int orer_frekans        = 120,
-                mesaj_frekans       = 120,
-                iys_frekans         = 120,
-                pdks_frekans        = 120,
+    private int orer_download_frekans        = 120,
+                mesaj_download_frekans       = 120,
+                iys_download_frekans         = 120,
+                pdks_download_frekans        = 120,
                 login_frekans       = 7200;
     private String aktif_tarih;
     private Filo_Download_Listener listener;
 
-    private double  orer_timestamp          = 0,
-                    mesaj_timestamp         = 0,
-                    iys_timestamp           = 0,
-                    pdks_timestamp          = 0,
+    private double  orer_download_timestamp          = 0,
+                    mesaj_download_timestamp         = 0,
+                    iys_download_timestamp           = 0,
+                    pdks_download_timestamp          = 0,
                     login_timestamp         = 0;
+
+    private int orer_download_durum = 1,
+                    pdks_download_durum = 1,
+                    iys_download_durum = 1,
+                    mesaj_download_durum = 1;
 
     public void add_listener( Filo_Download_Listener listener ){
         this.listener = listener;
@@ -60,14 +63,397 @@ public class Filo_Download implements Runnable {
         return aktif_tarih;
     }
 
-    public void set_frekans( int orer, int iys, int mesaj ){
-        orer_frekans = orer;
-        iys_frekans = iys;
-        mesaj_frekans = mesaj;
+
+    public void run(){
+
+        Thread main_thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while ( true ){
+                    Filo_Senkronizasyon.aktif_gun_hesapla();
+                    aktif_tarih = Filo_Senkronizasyon.get_aktif_gun();
+                    if( aktif_tarih.equals("BEKLEMEDE") ){
+                        System.out.println("BEKLEMEDE");
+                        continue;
+                    }
+                    Connection con;
+                    PreparedStatement pst;
+                    ResultSet res;
+                    try {
+                        con = DBC.getInstance().getConnection();
+                        pst = con.prepareStatement( "SELECT * FROM " + GitasDBT.SUNUCU_APP_CONFIG );
+                        res = pst.executeQuery();
+                        res.next();
+
+                        login_frekans = res.getInt("filo_giris_frekans");
+
+                        orer_download_frekans = res.getInt("orer_download_frekans");
+                        orer_download_durum = res.getInt("orer_download_durum");
+
+                        mesaj_download_durum = res.getInt("mesaj_download_durum");
+                        mesaj_download_frekans = res.getInt("mesaj_download_frekans");
+
+                        iys_download_durum = res.getInt("iys_download_durum");
+                        iys_download_frekans = res.getInt("iys_download_frekans");
+
+                        pdks_download_durum = res.getInt("pdks_download_durum");
+                        pdks_download_frekans = res.getInt("pdks_download_frekans");
+
+                        init_data_ok = true;
+
+                        System.out.println("filo_giriş_frekans => " + login_frekans );
+                        System.out.println("orer_download_durum => " + orer_download_durum );
+                        System.out.println("mesaj_download_durum => " + mesaj_download_durum );
+                        System.out.println("iys_download_durum => " + iys_download_durum );
+                        System.out.println("pdks_download_durum => " + pdks_download_durum );
+
+                        res.close();
+                        pst.close();
+                        con.close();
+
+                    } catch( SQLException e ){
+                        e.printStackTrace();
+                    }
+                    try {
+                        Thread.sleep(60000);
+                    } catch( InterruptedException e ){
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        });
+        main_thread.setDaemon(true);
+        main_thread.start();
+
+        Thread eski_veri_silme_thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Connection con;
+                PreparedStatement pst;
+                ResultSet res;
+                while( true ){
+                    if( aktif_tarih.equals("BEKLEMEDE") ){
+                        try {
+                            con = DBC.getInstance().getConnection();
+                            pst = con.prepareStatement("SELECT kod FROM " + GitasDBT.OTOBUSLER + " WHERE durum = ? && sunucu_kayit = ?");
+                            pst.setInt(1, 1);
+                            pst.setInt(2, 0);
+                            res = pst.executeQuery();
+                            while (res.next()) {
+                                pst = con.prepareStatement("DELETE FROM " + GitasDBT.ORER_KAYIT + " WHERE oto = ?");
+                                pst.setString(1, res.getString("kod") );
+                                pst.executeUpdate();
+                            }
+                            res.close();
+                            pst.close();
+                            con.close();
+                        } catch( SQLException e ){
+                            e.printStackTrace();
+                        }
+                    }
+                    try {
+                        Thread.sleep(3600000);
+                    } catch( InterruptedException e ){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        eski_veri_silme_thread.setDaemon(true);
+        eski_veri_silme_thread.start();
+
+        Thread login_thread = new Thread(new Runnable() {
+            private int frekans;
+            @Override
+            public void run() {
+                Login_Task login_task;
+                Connection con;
+                PreparedStatement pst;
+                while( true ){
+                    if( !init_data_ok ) {
+                        frekans = 10000;
+                    } else if( aktif_tarih.equals("BEKLEMEDE") ){
+                        System.out.println("FILO GIRIS BEKLEMEDE");
+                        frekans = 1800000;
+                    } else {
+                        frekans = login_frekans * 1000;
+                        login_ok = false;
+                        login_task = new Login_Task();
+                        login_task.yap();
+                        cookies = login_task.get_cookies();
+                        try {
+                            con = DBC.getInstance().getConnection();
+                            pst = con.prepareStatement( "UPDATE " + GitasDBT.SUNUCU_APP_CONFIG + " SET filo_giris_timestamp = ? WHERE id = ?");
+                            pst.setString(1, Common.get_current_datetime_db());
+                            pst.setInt(2,1);
+                            pst.execute();
+
+                            pst.close();
+                            con.close();
+                            login_ok = true;
+                        } catch( SQLException e ){
+                            e.printStackTrace();
+                        }
+                    }
+                    try{
+                        Thread.sleep( frekans );
+                    } catch( InterruptedException e ){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        login_thread.setDaemon(true);
+        login_thread.start();
+
+        Thread orer_download_thread = new Thread(new Runnable() {
+            private int frekans;
+            @Override
+            public void run() {
+                Connection con;
+                PreparedStatement pst;
+                ResultSet res;
+                Orer_Task orer_task;
+                while( true ){
+                    if( orer_download_durum ==  0 ){
+                        try {
+                            System.out.println("ORER DOWNLOAD DURDURULMUŞ!");
+                            Thread.sleep(20000);
+                            continue;
+                        } catch( InterruptedException e ){
+                            e.printStackTrace();
+                        }
+                    }
+                    if( !login_ok ) {
+                        frekans = 10000;
+                    } else if( aktif_tarih.equals("BEKLEMEDE") ){
+                        System.out.println("ORER DOWNLOAD BEKLEMEDE");
+                        frekans = 1800000;
+                    } else {
+                        frekans = orer_download_frekans * 1000;
+                        try {
+                            con = DBC.getInstance().getConnection();
+                            pst = con.prepareStatement( "SELECT kod FROM " + GitasDBT.OTOBUSLER + " WHERE durum = ?" );
+                            pst.setInt(1, 1);
+                            res = pst.executeQuery();
+                            while( res.next() ){
+                                orer_task = new Orer_Task(res.getString("kod"), cookies.get(res.getString("kod").substring(0, 1)), aktif_tarih);
+                                orer_task.yap();
+                            }
+                            try {
+                                pst = con.prepareStatement( "UPDATE " + GitasDBT.SUNUCU_APP_CONFIG + " SET orer_download_timestamp = ? WHERE id = ?");
+                                pst.setString(1, Common.get_current_datetime_db());
+                                pst.setInt(2,1);
+                                pst.execute();
+                            } catch( SQLException e ){
+                                e.printStackTrace();
+                            }
+                            res.close();
+                            pst.close();
+                            con.close();
+                        } catch( SQLException e ){
+                            e.printStackTrace();
+                        }
+                    }
+                    try{
+                        Thread.sleep( frekans );
+                    } catch( InterruptedException e ){
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        });
+        orer_download_thread.setDaemon(true);
+        orer_download_thread.start();
+
+        Thread pdks_download_thread = new Thread(new Runnable() {
+            private int frekans;
+            @Override
+            public void run() {
+                Connection con;
+                PreparedStatement pst;
+                ResultSet res;
+                PDKS_Task pdks_task;
+                while( true ) {
+                    if( pdks_download_durum ==  0 ){
+                        try {
+                            System.out.println("PDKS DOWNLOAD DURDURULMUŞ!");
+                            Thread.sleep(20000);
+                            continue;
+                        } catch( InterruptedException e ){
+                            e.printStackTrace();
+                        }
+                    }
+                    if( !login_ok ) {
+                        frekans = 10000;
+                    } else if( aktif_tarih.equals("BEKLEMEDE") ){
+                        System.out.println("PDKS DOWNLOAD BEKLEMEDE");
+                        frekans = 1800000;
+                    } else {
+                        frekans = pdks_download_frekans * 1000;
+                        try {
+                            con = DBC.getInstance().getConnection();
+                            pst = con.prepareStatement("SELECT kod FROM " + GitasDBT.OTOBUSLER + " WHERE durum = ?");
+                            pst.setInt(1, 1);
+                            res = pst.executeQuery();
+                            while (res.next()) {
+                                pdks_task = new PDKS_Task(res.getString("kod"), cookies.get(res.getString("kod").substring(0, 1)), aktif_tarih);
+                                pdks_task.yap();
+                            }
+                            try {
+                                pst = con.prepareStatement( "UPDATE " + GitasDBT.SUNUCU_APP_CONFIG + " SET pdks_download_timestamp = ? WHERE id = ?");
+                                pst.setString(1, Common.get_current_datetime_db());
+                                pst.setInt(2,1);
+                                pst.execute();
+                            } catch( SQLException e ){
+                                e.printStackTrace();
+                            }
+                            res.close();
+                            pst.close();
+                            con.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    try {
+                        Thread.sleep(frekans);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        pdks_download_thread.setDaemon(true);
+        pdks_download_thread.start();
+
+        Thread mesaj_download_thread = new Thread(new Runnable() {
+            private int frekans;
+            @Override
+            public void run() {
+                Connection con;
+                PreparedStatement pst;
+                ResultSet res;
+                Mesaj_Task mesaj_task;
+                while( true ){
+                    if( mesaj_download_durum == 0 ){
+                        try {
+                            System.out.println("MESAJ DOWNLOAD DURDURULMUŞ!");
+                            Thread.sleep(20000);
+                            continue;
+                        } catch( InterruptedException e ){
+                            e.printStackTrace();
+                        }
+                    }
+                    if( !login_ok ){
+                        frekans = 10000;
+                    } else if( aktif_tarih.equals("BEKLEMEDE") ){
+                        System.out.println("MESAJ DOWNLOAD BEKLEMEDE");
+                        frekans = 1800000;
+                    } else {
+                        frekans = mesaj_download_frekans * 1000;
+                        try {
+                            con = DBC.getInstance().getConnection();
+                            pst = con.prepareStatement("SELECT kod FROM " + GitasDBT.OTOBUSLER + " WHERE durum = ?");
+                            pst.setInt(1, 1);
+                            res = pst.executeQuery();
+                            while (res.next()) {
+                                mesaj_task = new Mesaj_Task( res.getString("kod"), cookies.get(res.getString("kod").substring(0,1) ), aktif_tarih );
+                                mesaj_task.yap();
+                            }
+                            try {
+                                pst = con.prepareStatement( "UPDATE " + GitasDBT.SUNUCU_APP_CONFIG + " SET mesaj_download_timestamp = ? WHERE id = ?");
+                                pst.setString(1, Common.get_current_datetime_db());
+                                pst.setInt(2,1);
+                                pst.execute();
+                            } catch( SQLException e ){
+                                e.printStackTrace();
+                            }
+                            res.close();
+                            pst.close();
+                            con.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    try {
+                        Thread.sleep(frekans);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        mesaj_download_thread.setDaemon(true);
+        mesaj_download_thread.start();
+
+        Thread iys_download_thread = new Thread(new Runnable() {
+            private int frekans;
+            @Override
+            public void run() {
+                Connection con;
+                PreparedStatement pst;
+                ResultSet res;
+                IYS_Task iys_task;
+                while( true ){
+                    if( iys_download_durum == 0 ){
+                        try {
+                            System.out.println("IYS DOWNLOAD DURDURULMUŞ!");
+                            Thread.sleep(20000);
+                            continue;
+                        } catch( InterruptedException e ){
+                            e.printStackTrace();
+                        }
+                    }
+                    if( !login_ok ){
+                        frekans = 10000;
+                    } else if( aktif_tarih.equals("BEKLEMEDE") ){
+                        System.out.println("IYS DOWNLOAD BEKLEMEDE");
+                        frekans = 1800000;
+                    } else {
+                        frekans = iys_download_frekans * 1000;
+                        try {
+                            con = DBC.getInstance().getConnection();
+                            pst = con.prepareStatement("SELECT kod FROM " + GitasDBT.OTOBUSLER + " WHERE durum = ?");
+                            pst.setInt(1, 1);
+                            res = pst.executeQuery();
+                            otobusler = new ArrayList<>();
+                            while( res.next() ) otobusler.add( res.getString("kod"));
+                            iys_task = new IYS_Task( otobusler, cookies, aktif_tarih );
+                            iys_task.yap();
+
+                            try {
+                                pst = con.prepareStatement( "UPDATE " + GitasDBT.SUNUCU_APP_CONFIG + " SET iys_download_timestamp = ? WHERE id = ?");
+                                pst.setString(1, Common.get_current_datetime_db());
+                                pst.setInt(2,1);
+                                pst.execute();
+                            } catch( SQLException e ){
+                                e.printStackTrace();
+                            }
+
+                            res.close();
+                            pst.close();
+                            con.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    try {
+                        Thread.sleep(frekans);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        iys_download_thread.setDaemon(true);
+        iys_download_thread.start();
+
     }
 
 
-    public void run(){
+    /*public void run(){
 
         PDKS_Task pdks_task = null;
         Orer_Task orer_task = null;
@@ -122,7 +508,7 @@ public class Filo_Download implements Runnable {
                     e.printStackTrace();
                 }
             }*/
-
+/*
             if( Common.get_unix() - pdks_timestamp >= 50 ){
                 for( String otobus : otobusler ){
                     pdks_task = new PDKS_Task( otobus, cookies.get(otobus.substring(0,1) ), aktif_tarih );
@@ -182,7 +568,7 @@ public class Filo_Download implements Runnable {
                 e.printStackTrace();
             }
         }
-    }
+    }*/
     public void stop(){
         aktif = false;
     }
@@ -302,7 +688,7 @@ class PDKS_Task extends Filo_Task {
                     } else {
                         kaydet = false;
                     }
-                    System.out.println(oto + " PDKS --> [" + tip + " " + sicil_no + "] [" + isim + "]");
+                    //System.out.println(oto + " PDKS --> [" + tip + " " + sicil_no + "] [" + isim + "]");
                     if (kaydet) {
                         surucu = new Surucu_Data(sicil_no);
 
@@ -414,7 +800,7 @@ class Orer_Task extends Filo_Task {
             if( document == null ){}
         } catch( NullPointerException e ){
             e.printStackTrace();
-            yap();
+            //yap();
         }
         Elements table = null;
         Elements rows = null;
@@ -577,7 +963,7 @@ class Orer_Task extends Filo_Task {
         } catch( NullPointerException e ){
             e.printStackTrace();
             System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  oto+ " ORER sefer veri ayıklama hatası. Tekrar deneniyor.");
-            yap();
+            //yap();
         }
     }
     public ArrayList<JSONObject> get_seferler(){
@@ -599,14 +985,18 @@ class Mesaj_Task extends Filo_Task {
         this.logprefix = "Mesaj";
     }
     public void yap(){
-        System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "[ "+ oto + " MESAJ DOWNLOAD ]");
-        veri_ayikla( parse_html( istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konum=ana&konu=mesaj&oto=") ) );
+        System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "[ "+ oto + " GELEN MESAJ DOWNLOAD ]");
+        veri_ayikla( parse_html( istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konum=ana&konu=mesaj&oto=") ), false );
+
+        System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "[ "+ oto + " GİDEN MESAJ DOWNLOAD ]");
+        veri_ayikla( parse_html( istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konu=mesaj&mtip=gelen&oto=") ), true );
     }
-    private void veri_ayikla( Document document ){
+
+    private void veri_ayikla( Document document, boolean giden ){
         try {
 
         } catch( NullPointerException e ){
-            yap();
+            //yap();
             e.printStackTrace();
         }
         Element row = null;
@@ -635,13 +1025,17 @@ class Mesaj_Task extends Filo_Task {
                                              aktif_tarih,
                                              0
                 );
-                mesaj.ekle(rows.size()-i);
 
+                if( giden ){
+                    mesaj.giden_mesaj_ekle(rows.size()-i);
+                } else {
+                    mesaj.ekle(rows.size()-i);
+                }
             }
         } catch( NullPointerException e ){
             e.printStackTrace();
             System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  oto + " Mesaj veri ayıklama hatası. Tekrar deneniyor.");
-            yap();
+            //yap();
         }
     }
 }
@@ -713,7 +1107,7 @@ class IYS_Task extends Filo_Task {
         } catch( NullPointerException e ){
             e.printStackTrace();
             System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  +" " + oto + " " +  "IYS Table null exception");
-            yap();
+            //yap();
             return;
         }
 

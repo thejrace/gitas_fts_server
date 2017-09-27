@@ -17,7 +17,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Gitaş FTS Sunucu Versiyon");
         primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+        //primaryStage.show();
 
         /*try {
             System.setOut(new PrintStream(new File("C:\\output.txt")));

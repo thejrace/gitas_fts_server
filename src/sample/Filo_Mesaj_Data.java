@@ -40,7 +40,7 @@ public class Filo_Mesaj_Data {
             pst.setInt(3, no );
             ResultSet res = pst.executeQuery();
             if( !res.next() ){
-                System.out.println(oto + " MESAJ İLK EKLEME");
+                //System.out.println(oto + " MESAJ İLK EKLEME");
                 pst = con.prepareStatement("INSERT INTO " + GitasDBT.FILO_MESAJLAR + " ( oto, plaka, surucu, kaynak, mesaj, tarih, saat, hareket_dokumu, no ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) ");
                 pst.setString(1, oto );
                 pst.setString(2, plaka );
@@ -53,7 +53,7 @@ public class Filo_Mesaj_Data {
                 pst.setInt(9, no );
                 pst.executeUpdate();
             } else {
-                System.out.println(oto + " MESAJ GÜNCELLEME");
+                //System.out.println(oto + " MESAJ GÜNCELLEME");
                 // surucu veya plaka değişmişse kaydi guncelle
                 // dusuk ihtimal ama pdks veya plaka degismis ama mesaj ondan once kaydedilmis
                 /*System.out.println("MSJ DOWNLOAD: KAPI KODU: " + oto );
@@ -61,6 +61,49 @@ public class Filo_Mesaj_Data {
                 System.out.println("MSJ DOWNLOAD: "+  res.getString("surucu") );*/
                 if( !res.getString("surucu").equals(surucu) || !res.getString("plaka").equals("plaka") ){
                     pst = con.prepareStatement("UPDATE " + GitasDBT.FILO_MESAJLAR + " SET plaka = ?, surucu = ? WHERE id = ?");
+                    pst.setString(1, plaka );
+                    pst.setString(2, surucu );
+                    pst.setInt(3, res.getInt("id"));
+                    pst.executeUpdate();
+                }
+            }
+            res.close();
+            pst.close();
+            con.close();
+        } catch( SQLException e ){
+            e.printStackTrace();
+        }
+    }
+
+    public void giden_mesaj_ekle( int no ){
+        try {
+            Connection con = DBC.getInstance().getConnection();
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM " + GitasDBT.FILO_MESAJLAR_GIDEN + " WHERE tarih = ? && oto = ? && no = ?");
+            pst.setString(1, tarih );
+            pst.setString(2, oto );
+            pst.setInt(3, no );
+            ResultSet res = pst.executeQuery();
+            if( !res.next() ){
+                //System.out.println(oto + " GİDEN MESAJ İLK EKLEME");
+                pst = con.prepareStatement("INSERT INTO " + GitasDBT.FILO_MESAJLAR_GIDEN + " ( oto, plaka, surucu, kaynak, mesaj, tarih, saat, no ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ? ) ");
+                pst.setString(1, oto );
+                pst.setString(2, plaka );
+                pst.setString(3, surucu );
+                pst.setString(4, kaynak );
+                pst.setString(5, mesaj );
+                pst.setString(6, tarih );
+                pst.setString(7, saat );
+                pst.setInt(8, no );
+                pst.executeUpdate();
+            } else {
+                //System.out.println(oto + " GİDEN MESAJ GÜNCELLEME");
+                // surucu veya plaka değişmişse kaydi guncelle
+                // dusuk ihtimal ama pdks veya plaka degismis ama mesaj ondan once kaydedilmis
+                /*System.out.println("MSJ DOWNLOAD: KAPI KODU: " + oto );
+                System.out.println("MSJ DOWNLOAD: SÜRÜCÜ: "  + surucu  );
+                System.out.println("MSJ DOWNLOAD: "+  res.getString("surucu") );*/
+                if( !res.getString("surucu").equals(surucu) || !res.getString("plaka").equals("plaka") ){
+                    pst = con.prepareStatement("UPDATE " + GitasDBT.FILO_MESAJLAR_GIDEN + " SET plaka = ?, surucu = ? WHERE id = ?");
                     pst.setString(1, plaka );
                     pst.setString(2, surucu );
                     pst.setInt(3, res.getInt("id"));

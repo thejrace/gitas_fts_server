@@ -15,6 +15,7 @@ public class GitasDBT {
             IYS_KAYIT_LOG = "iys_kayit_log",
             SURUCULER = "soforler",
             FILO_MESAJLAR = "filo_mesajlar",
+            FILO_MESAJLAR_GIDEN = "filo_mesajlar_giden",
             CONFIG = "config",
             COOKIES = "filo_cookies",
             ALARMLAR = "alarmlar",
@@ -23,6 +24,8 @@ public class GitasDBT {
             NOT_BILDIRIMLERI = "not_bildirimleri",
             PDKS_KAYIT = "pdks_kayit",
             PLAKA_DEGISIMLERI = "app_plaka_degisim_bildirimleri",
-            OTOBUS_DURAK_TAKIP = "app_otobus_durak_takip";
+            OTOBUS_DURAK_TAKIP = "app_otobus_durak_takip",
+            SUNUCU_APP_CONFIG = "sunucu_app_config",
+            SUNUCU_APP_HATA_KAYITLARI = "sunucu_app_hata_kayitlari";
 
 }
