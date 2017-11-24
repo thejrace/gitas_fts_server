@@ -21,6 +21,9 @@ import java.util.Map;
  */
 public class Filo_Download implements Runnable {
 
+
+    public static String filo5_cookie = "INIT";
+
     private ArrayList<String> otobusler = new ArrayList<>();
     private boolean init_data_ok = false,
                     login_ok = false;
@@ -33,23 +36,12 @@ public class Filo_Download implements Runnable {
                 iys_download_frekans         = 120,
                 pdks_download_frekans        = 120,
                 login_frekans       = 7200;
-    private String aktif_tarih;
-    private Filo_Download_Listener listener;
-
-    private double  orer_download_timestamp          = 0,
-                    mesaj_download_timestamp         = 0,
-                    iys_download_timestamp           = 0,
-                    pdks_download_timestamp          = 0,
-                    login_timestamp         = 0;
+    private String aktif_tarih = "INIT";
 
     private int orer_download_durum = 1,
                     pdks_download_durum = 1,
                     iys_download_durum = 1,
                     mesaj_download_durum = 1;
-
-    public void add_listener( Filo_Download_Listener listener ){
-        this.listener = listener;
-    }
 
     public void start(){
         if( thread == null ){
@@ -58,12 +50,6 @@ public class Filo_Download implements Runnable {
             thread.start();
         }
     }
-
-    public String get_aktif_tarih(){
-        return aktif_tarih;
-    }
-
-
     public void run(){
 
         Thread main_thread = new Thread(new Runnable() {
@@ -85,7 +71,7 @@ public class Filo_Download implements Runnable {
                         res = pst.executeQuery();
                         res.next();
 
-                        login_frekans = res.getInt("filo_giris_frekans");
+                        //login_frekans = res.getInt("filo_giris_frekans");
 
                         orer_download_frekans = res.getInt("orer_download_frekans");
                         orer_download_durum = res.getInt("orer_download_durum");
@@ -101,7 +87,7 @@ public class Filo_Download implements Runnable {
 
                         init_data_ok = true;
 
-                        System.out.println("filo_giriş_frekans => " + login_frekans );
+                        //System.out.println("filo_giriş_frekans => " + login_frekans );
                         System.out.println("orer_download_durum => " + orer_download_durum );
                         System.out.println("mesaj_download_durum => " + mesaj_download_durum );
                         System.out.println("iys_download_durum => " + iys_download_durum );
@@ -133,7 +119,8 @@ public class Filo_Download implements Runnable {
                 PreparedStatement pst;
                 ResultSet res;
                 while( true ){
-                    if( aktif_tarih.equals("BEKLEMEDE") ){
+
+                    if( aktif_tarih.equals("BEKLEMEDE") && !aktif_tarih.equals("INIT") ){
                         try {
                             con = DBC.getInstance().getConnection();
                             pst = con.prepareStatement("SELECT kod FROM " + GitasDBT.OTOBUSLER + " WHERE durum = ? && sunucu_kayit = ?");
@@ -163,50 +150,6 @@ public class Filo_Download implements Runnable {
         eski_veri_silme_thread.setDaemon(true);
         eski_veri_silme_thread.start();
 
-        Thread login_thread = new Thread(new Runnable() {
-            private int frekans;
-            @Override
-            public void run() {
-                Login_Task login_task;
-                Connection con;
-                PreparedStatement pst;
-                while( true ){
-                    if( !init_data_ok ) {
-                        frekans = 10000;
-                    } else if( aktif_tarih.equals("BEKLEMEDE") ){
-                        System.out.println("FILO GIRIS BEKLEMEDE");
-                        frekans = 1800000;
-                    } else {
-                        frekans = login_frekans * 1000;
-                        login_ok = false;
-                        login_task = new Login_Task();
-                        login_task.yap();
-                        cookies = login_task.get_cookies();
-                        try {
-                            con = DBC.getInstance().getConnection();
-                            pst = con.prepareStatement( "UPDATE " + GitasDBT.SUNUCU_APP_CONFIG + " SET filo_giris_timestamp = ? WHERE id = ?");
-                            pst.setString(1, Common.get_current_datetime_db());
-                            pst.setInt(2,1);
-                            pst.execute();
-
-                            pst.close();
-                            con.close();
-                            login_ok = true;
-                        } catch( SQLException e ){
-                            e.printStackTrace();
-                        }
-                    }
-                    try{
-                        Thread.sleep( frekans );
-                    } catch( InterruptedException e ){
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-        login_thread.setDaemon(true);
-        login_thread.start();
-
         Thread orer_download_thread = new Thread(new Runnable() {
             private int frekans;
             @Override
@@ -225,12 +168,14 @@ public class Filo_Download implements Runnable {
                             e.printStackTrace();
                         }
                     }
-                    if( !login_ok ) {
-                        frekans = 10000;
-                    } else if( aktif_tarih.equals("BEKLEMEDE") ){
+                    if( aktif_tarih.equals("BEKLEMEDE") ){
                         System.out.println("ORER DOWNLOAD BEKLEMEDE");
                         frekans = 1800000;
+                    } else if( aktif_tarih.equals("INIT") ){
+                        System.out.println("AKTIF TARIH YOK");
+                        frekans = 10000;
                     } else {
+
                         frekans = orer_download_frekans * 1000;
                         try {
                             con = DBC.getInstance().getConnection();
@@ -255,6 +200,7 @@ public class Filo_Download implements Runnable {
                         } catch( SQLException e ){
                             e.printStackTrace();
                         }
+
                     }
                     try{
                         Thread.sleep( frekans );
@@ -286,12 +232,15 @@ public class Filo_Download implements Runnable {
                             e.printStackTrace();
                         }
                     }
-                    if( !login_ok ) {
-                        frekans = 10000;
-                    } else if( aktif_tarih.equals("BEKLEMEDE") ){
+
+                    if( aktif_tarih.equals("BEKLEMEDE") ){
                         System.out.println("PDKS DOWNLOAD BEKLEMEDE");
                         frekans = 1800000;
+                    } else if( aktif_tarih.equals("INIT") ){
+                        System.out.println("AKTIF TARIH YOK");
+                        frekans = 10000;
                     } else {
+
                         frekans = pdks_download_frekans * 1000;
                         try {
                             con = DBC.getInstance().getConnection();
@@ -316,6 +265,7 @@ public class Filo_Download implements Runnable {
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
+
                     }
                     try {
                         Thread.sleep(frekans);
@@ -346,12 +296,15 @@ public class Filo_Download implements Runnable {
                             e.printStackTrace();
                         }
                     }
-                    if( !login_ok ){
-                        frekans = 10000;
-                    } else if( aktif_tarih.equals("BEKLEMEDE") ){
+
+                    if( aktif_tarih.equals("BEKLEMEDE") ){
                         System.out.println("MESAJ DOWNLOAD BEKLEMEDE");
                         frekans = 1800000;
+                    } else if( aktif_tarih.equals("INIT") ){
+                        System.out.println("AKTIF TARIH YOK");
+                        frekans = 10000;
                     } else {
+
                         frekans = mesaj_download_frekans * 1000;
                         try {
                             con = DBC.getInstance().getConnection();
@@ -376,6 +329,7 @@ public class Filo_Download implements Runnable {
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
+
                     }
                     try {
                         Thread.sleep(frekans);
@@ -406,12 +360,14 @@ public class Filo_Download implements Runnable {
                             e.printStackTrace();
                         }
                     }
-                    if( !login_ok ){
-                        frekans = 10000;
-                    } else if( aktif_tarih.equals("BEKLEMEDE") ){
+                    if( aktif_tarih.equals("BEKLEMEDE") ){
                         System.out.println("IYS DOWNLOAD BEKLEMEDE");
                         frekans = 1800000;
+                    } else if( aktif_tarih.equals("INIT") ){
+                        System.out.println("AKTIF TARIH YOK");
+                        frekans = 10000;
                     } else {
+
                         frekans = iys_download_frekans * 1000;
                         try {
                             con = DBC.getInstance().getConnection();
@@ -420,7 +376,7 @@ public class Filo_Download implements Runnable {
                             res = pst.executeQuery();
                             otobusler = new ArrayList<>();
                             while( res.next() ) otobusler.add( res.getString("kod"));
-                            iys_task = new IYS_Task( otobusler, cookies, aktif_tarih );
+                            iys_task = new IYS_Task(otobusler, cookies, aktif_tarih);
                             iys_task.yap();
 
                             try {
@@ -438,7 +394,9 @@ public class Filo_Download implements Runnable {
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
+
                     }
+
                     try {
                         Thread.sleep(frekans);
                     } catch (InterruptedException e) {
@@ -452,123 +410,6 @@ public class Filo_Download implements Runnable {
 
     }
 
-
-    /*public void run(){
-
-        PDKS_Task pdks_task = null;
-        Orer_Task orer_task = null;
-        Mesaj_Task mesaj_task = null;
-        Login_Task login_task = null;
-        IYS_Task iys_task = null;
-        JSONObject sefer_data_total;
-        JSONObject aktif_sefer_verileri;
-        while( aktif ){
-
-            Filo_Senkronizasyon.aktif_gun_hesapla();
-            aktif_tarih = Filo_Senkronizasyon.get_aktif_gun();
-
-            if( aktif_tarih.equals("BEKLEMEDE") ){
-                System.out.println("BEKLEMEDE");
-                continue;
-            }
-
-            if( !otobusler_cached ){
-                try {
-                    con = DBC.getInstance().getConnection();
-                    pst = con.prepareStatement( "SELECT * FROM " + GitasDBT.OTOBUSLER );
-                    res = pst.executeQuery();
-                    while( res.next() ) otobusler.add( res.getString("kod") );
-                    otobusler_cached = true;
-                } catch( SQLException e ){
-                    e.printStackTrace();
-                }
-            }
-
-            if( Common.get_unix() - login_timestamp >= login_frekans ){
-
-                login_task = new Login_Task();
-                login_task.yap();
-                cookies = login_task.get_cookies();
-                login_timestamp = Common.get_unix();
-                listener.on_login_finish();
-            }
-
-
-            /*if( !cookies_cached ){
-                try {
-                    con = DBC.getInstance().getConnection();
-                    pst = con.prepareStatement( "SELECT * FROM " + GitasDBT.COOKIES );
-                    res = pst.executeQuery();
-                    res.next();
-                    cookies.put("A", res.getString("cookie_A") );
-                    cookies.put("B", res.getString("cookie_B") );
-                    cookies.put("C", res.getString("cookie_C") );
-                    cookies_cached = true;
-                } catch( SQLException e ){
-                    e.printStackTrace();
-                }
-            }*/
-/*
-            if( Common.get_unix() - pdks_timestamp >= 50 ){
-                for( String otobus : otobusler ){
-                    pdks_task = new PDKS_Task( otobus, cookies.get(otobus.substring(0,1) ), aktif_tarih );
-                    pdks_task.yap();
-                }
-                pdks_timestamp = Common.get_unix();
-                listener.on_pdks_finish();
-            }
-
-            if( Common.get_unix()  - orer_timestamp >= orer_frekans ) {
-                sefer_data_total = new JSONObject();
-                aktif_sefer_verileri = new JSONObject();
-
-                try {
-                    for (String otobus : otobusler) {
-                        orer_task = new Orer_Task(otobus, cookies.get(otobus.substring(0, 1)), aktif_tarih);
-                        orer_task.yap();
-                        sefer_data_total.put(otobus, orer_task.get_seferler());
-                        aktif_sefer_verileri.put(otobus, orer_task.get_aktif_sefer_verisi());
-                    }
-                    orer_timestamp = Common.get_unix();
-                    listener.on_orer_finish(sefer_data_total, aktif_sefer_verileri);
-                } catch (Exception e) {
-                    try {
-                        FileWriter f2 = new FileWriter(new File("C:\\temp\\login_log.txt"), true);
-                        f2.write( Common.get_current_datetime() + " --> " + e.toString() + "\r\n");
-                        f2.close();
-                    } catch( IOException ex ){
-                        ex.printStackTrace();
-                    }
-                    e.printStackTrace();
-                }
-            }
-
-            if( Common.get_unix()  - mesaj_timestamp >= mesaj_frekans ){
-                for( String otobus : otobusler ){
-                    mesaj_task = new Mesaj_Task( otobus, cookies.get(otobus.substring(0,1) ), aktif_tarih );
-                    mesaj_task.yap();
-                }
-                mesaj_timestamp = Common.get_unix();
-                listener.on_mesaj_finish();
-            }
-
-            if( Common.get_unix()  - iys_timestamp >= iys_frekans ){
-                iys_task = new IYS_Task( otobusler, cookies, aktif_tarih );
-                iys_task.yap();
-                iys_timestamp = Common.get_unix();
-                listener.on_iys_finish();
-            }
-
-
-            try {
-                if( res != null ) res.close();
-                if( pst != null ) pst.close();
-                if( con != null ) con.close();
-            } catch( SQLException e ){
-                e.printStackTrace();
-            }
-        }
-    }*/
     public void stop(){
         aktif = false;
     }
@@ -579,9 +420,9 @@ class Filo_Task {
     protected org.jsoup.Connection.Response istek_yap( String url ){
         try {
             return Jsoup.connect(url + oto)
-                    .cookie("PHPSESSID", cookie )
+                    .cookie("PHPSESSID", Filo_Download.filo5_cookie )
                     .method(org.jsoup.Connection.Method.POST)
-                    .timeout(10*1000)
+                    .timeout(40*1000)
                     .execute();
         } catch (IOException | NullPointerException e) {
             System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  oto + " " + logprefix + "veri alım hatası. Tekrar deneniyor.");
@@ -598,6 +439,33 @@ class Filo_Task {
         return null;
     }
 }
+
+class Rotasyon_Task extends Filo_Task{
+
+    private String bolge;
+    private ArrayList<String> otobusler;
+    private Map<String, String> cookies = new HashMap<>();
+    public Rotasyon_Task( ArrayList<String> otobusler, Map<String, String> cookies ){
+        this.cookies = cookies;
+        this.otobusler = otobusler;
+    }
+    public void yap(){
+        System.out.println( "["+Common.get_current_hmin() + "] Rotasyon download");
+        org.jsoup.Connection.Response req = istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konu=mesaj&mtip=PDKS&oto=");
+        Document doc = parse_html( req );
+        rotasyon_ayikla( doc );
+    }
+    private void rotasyon_ayikla( Document document ){
+        try {
+            if( document == null ){}
+        } catch( NullPointerException e ){
+            yap();
+            e.printStackTrace();
+        }
+    }
+}
+
+
 class Login_Task {
     private Map<String, String> cookies = new HashMap<>();
     public void yap(){
@@ -641,6 +509,7 @@ class PDKS_Task extends Filo_Task {
         this.logprefix = "Sürücü PDKS";
     }
     public void yap(){
+        if( aktif_tarih.equals("BEKLEMEDE") ) return;
         System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "[ " + oto + " PDKS DOWNLOAD ]");
         org.jsoup.Connection.Response pdks_req = istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konu=mesaj&mtip=PDKS&oto=");
         Document pdks_doc = parse_html( pdks_req );
@@ -787,9 +656,10 @@ class Orer_Task extends Filo_Task {
     }
     public void yap(){
         // veri yokken nullpointer yemeyek diye resetliyoruz başta
+        if( aktif_tarih.equals("BEKLEMEDE") ) return;
         seferler = new ArrayList<>();
         aktif_sefer_verisi = "";
-        System.out.println("ORER download [ " + oto + " ]");
+        System.out.println("ORER download [ "+ aktif_tarih +" ] [ " + oto + " ]");
         org.jsoup.Connection.Response sefer_verileri_req = istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konum=ana&konu=sefer&otobus=");
         Document sefer_doc = parse_html( sefer_verileri_req );
         sefer_veri_ayikla( sefer_doc );
@@ -814,7 +684,12 @@ class Orer_Task extends Filo_Task {
             table = document.select("table");
             rows = table.select("tr");
 
-            if( rows.size() == 1 ){
+            if( rows.size() == 0 ){
+                Common.orer_degisiklik_log_kaydet(oto, aktif_tarih,"HİÇ VERİ YOK", 0, 0, rows.size() );
+                return;
+            }
+
+            if( rows.size() == 1  ){
                 System.out.println(oto + " ORER Filo Veri Yok");
                 return;
             }
@@ -854,6 +729,7 @@ class Orer_Task extends Filo_Task {
                             aktif_versiyon = son_versiyon + 1 + 1;
                             // önceki versiyonu geçersiz yapiyoruz
                             otobus.sefer_versiyonunu_gecersiz_yap( aktif_tarih, son_versiyon + 1 );
+                            Common.orer_degisiklik_log_kaydet(oto, aktif_tarih,"ORER DEGISMIS", aktif_versiyon, son_versiyon, rows.size() );
                             System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "ORER DOWNLOAD [ " + oto + " ] ORER FARKLILIĞI VAR");
                             // TODO alarm vericez burada ORER degismis
                             db_insert = true;
@@ -866,6 +742,7 @@ class Orer_Task extends Filo_Task {
                         aktif_versiyon = son_versiyon + 1 + 1;
                         // önceki versiyonu geçersiz yapiyoruz
                         otobus.sefer_versiyonunu_gecersiz_yap( aktif_tarih, son_versiyon + 1 );
+                        Common.orer_degisiklik_log_kaydet(oto, aktif_tarih,"ROWS SIZE FARKLI", aktif_versiyon, son_versiyon, rows.size() );
                         System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "ORER DOWNLOAD [ " + oto + " ] EKSİK VEYA FAZLA SEFER VAR");
                         // TODO alarm vericez burada fazla veya eksik sefer var
                         db_insert = true;
@@ -985,6 +862,7 @@ class Mesaj_Task extends Filo_Task {
         this.logprefix = "Mesaj";
     }
     public void yap(){
+        if( aktif_tarih.equals("BEKLEMEDE") ) return;
         System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "[ "+ oto + " GELEN MESAJ DOWNLOAD ]");
         veri_ayikla( parse_html( istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konum=ana&konu=mesaj&oto=") ), false );
 
@@ -1050,6 +928,7 @@ class IYS_Task extends Filo_Task {
         this.aktif_tarih = aktif_tarih;
     }
     public void yap(){
+        if( aktif_tarih.equals("BEKLEMEDE") ) return;
         // bolge bolge yap
         cookie = cookies.get("A");
         System.out.println("A Bölgesi IYS Tarama");
@@ -1175,3 +1054,57 @@ class IYS_Task extends Filo_Task {
 
 
 }
+
+
+
+/*       24.11.2017 - captcha sonrasi çöp oldu
+        Thread login_thread = new Thread(new Runnable() {
+            private int frekans;
+            @Override
+            public void run() {
+                Login_Task login_task;
+                Connection con;
+                PreparedStatement pst;
+                while( true ){
+
+                    if( aktif_tarih.equals("BEKLEMEDE") ) {
+                        System.out.println("FILO GIRIS BEKLEMEDE");
+                        frekans = 1800000;
+                    } else if( aktif_tarih.equals("INIT") ){
+                        System.out.println("AKTIF TARIH YOK");
+                        frekans = 10000;
+                    } else {
+                        if( !init_data_ok ) {
+                            frekans = 10000;
+                        } else {
+                            frekans = login_frekans * 1000;
+                            login_ok = false;
+                            login_task = new Login_Task();
+                            login_task.yap();
+                            cookies = login_task.get_cookies();
+                            try {
+                                con = DBC.getInstance().getConnection();
+                                pst = con.prepareStatement( "UPDATE " + GitasDBT.SUNUCU_APP_CONFIG + " SET filo_giris_timestamp = ? WHERE id = ?");
+                                pst.setString(1, Common.get_current_datetime_db());
+                                pst.setInt(2,1);
+                                pst.execute();
+
+                                pst.close();
+                                con.close();
+                                login_ok = true;
+                            } catch( SQLException e ){
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                    try{
+                        Thread.sleep( frekans );
+                    } catch( InterruptedException e ){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        login_thread.setDaemon(true);
+        login_thread.start();
+*/

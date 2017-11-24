@@ -14,7 +14,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("bos.fxml"));
         primaryStage.setTitle("Gitaş FTS Sunucu Versiyon");
         primaryStage.setScene(new Scene(root, 300, 275));
         //primaryStage.show();
@@ -27,8 +27,4 @@ public class Main extends Application {
 
     }
 
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

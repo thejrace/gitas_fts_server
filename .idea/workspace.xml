@@ -7,24 +7,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/gitas_fts_server_jar/gitas_fts_server_thread.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$7.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Task.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/IYS_Task.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Login_Task.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Mesaj_Task.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Orer_Task.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/PDKS_Task.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/gitas_fts_server_jar/gitas_fts_server.jar" afterPath="$PROJECT_DIR$/out/artifacts/gitas_fts_server_jar/gitas_fts_server.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Common$1.class" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Common$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Common$2.class" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Common$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Common$Delta.class" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Common$Delta.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Common.class" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Common.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Login_Task.class" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Login_Task.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Mesaj_Data.class" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Mesaj_Data.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Task.class" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Task.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/GitasDBT.class" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/GitasDBT.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Mesaj_Task.class" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Mesaj_Task.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Orer_Task.class" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Orer_Task.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Otobus.class" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Otobus.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/PDKS_Task.class" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/PDKS_Task.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Common.java" afterPath="$PROJECT_DIR$/src/sample/Common.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Controller.java" afterPath="$PROJECT_DIR$/src/sample/Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Filo_Download.java" afterPath="$PROJECT_DIR$/src/sample/Filo_Download.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Filo_Mesaj_Data.java" afterPath="$PROJECT_DIR$/src/sample/Filo_Mesaj_Data.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/GitasDBT.java" afterPath="$PROJECT_DIR$/src/sample/GitasDBT.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main.java" afterPath="$PROJECT_DIR$/src/sample/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/sample.fxml" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,96 +91,77 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+    <leaf>
+      <file leaf-file-name="Filo_Download.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+            <state relative-caret-position="521">
+              <caret line="1093" column="40" lean-forward="false" selection-start-line="1093" selection-start-column="40" selection-end-line="1093" selection-end-column="40" />
+              <folding>
+                <element signature="class#Rotasyon_Task#0" expanded="false" />
+                <element signature="class#PDKS_Task#0" expanded="false" />
+                <element signature="class#Orer_Task#0" expanded="false" />
+                <element signature="class#Mesaj_Task#0" expanded="false" />
+                <element signature="class#IYS_Task#0" expanded="false" />
+                <marker date="1511554676313" expanded="true" signature="2192:2206" ph="SELECT * FRO... missingValue" />
+                <marker date="1511554676313" expanded="true" signature="4616:4694" ph="SELECT kod F... missingValue" />
+                <marker date="1511554676313" expanded="true" signature="4953:5006" ph="DELETE FROM " />
+                <marker date="1511554676313" expanded="true" signature="7080:7138" ph="SELECT kod F... missingValue" />
+                <marker date="1511554676313" expanded="true" signature="7611:7697" ph="UPDATE missi... " />
+                <marker date="1511554676313" expanded="true" signature="9933:9991" ph="SELECT kod F... missingValue" />
+                <marker date="1511554676313" expanded="true" signature="10463:10549" ph="UPDATE missi... " />
+                <marker date="1511554676313" expanded="true" signature="12788:12846" ph="SELECT kod F... missingValue" />
+                <marker date="1511554676313" expanded="true" signature="13323:13410" ph="UPDATE missi... " />
+                <marker date="1511554676313" expanded="true" signature="15636:15694" ph="SELECT kod F... missingValue" />
+                <marker date="1511554676313" expanded="true" signature="16169:16254" ph="UPDATE missi... " />
+                <marker date="1511554676313" expanded="true" signature="43879:43972" ph="SELECT * FRO... missingValue" />
+                <marker date="1511554676313" expanded="true" signature="44567:44697" ph="INSERT INTO missingValue... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Filo_Captcha_Scene.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Filo_Captcha_Scene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="665">
+              <caret line="46" column="26" lean-forward="false" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1903#1904#0" expanded="true" />
+                <element signature="e#1931#1932#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Filo_Captcha_Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Filo_Captcha_Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="16">
+              <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Filo_Download.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="149" column="9" lean-forward="true" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
-              <folding>
-                <element signature="class#1979:4489" expanded="false" />
-                <element signature="class#6222:7931" expanded="false" />
-                <element signature="class#10827:13454" expanded="false" />
-                <element signature="class#13596:16232" expanded="false" />
-                <element signature="class#16374:18997" expanded="false" />
-                <element signature="class#Filo_Task#0" expanded="false" />
-                <element signature="class#Login_Task#0" expanded="false" />
-                <element signature="class#PDKS_Task#0" expanded="false" />
-                <element signature="method#nokta_ayikla#0;class#PDKS_Task#0" expanded="false" />
-                <element signature="class#Orer_Task#0" expanded="false" />
-                <element signature="class#Mesaj_Task#0" expanded="false" />
-                <element signature="class#IYS_Task#0" expanded="false" />
-                <marker date="1506542793217" expanded="true" signature="2640:2654" ph="SELECT * FRO... missingValue" />
-                <marker date="1506542793217" expanded="true" signature="5028:5106" ph="SELECT kod F... missingValue" />
-                <marker date="1506542793217" expanded="true" signature="5365:5418" ph="DELETE FROM " />
-                <marker date="1506542793217" expanded="true" signature="7163:7246" ph="UPDATE missi... " />
-                <marker date="1506542793217" expanded="true" signature="9238:9296" ph="SELECT kod F... missingValue" />
-                <marker date="1506542793217" expanded="true" signature="9769:9855" ph="UPDATE missi... " />
-                <marker date="1506542793217" expanded="true" signature="12009:12067" ph="SELECT kod F... missingValue" />
-                <marker date="1506542793217" expanded="true" signature="12539:12625" ph="UPDATE missi... " />
-                <marker date="1506542793217" expanded="true" signature="14781:14839" ph="SELECT kod F... missingValue" />
-                <marker date="1506542793217" expanded="true" signature="15316:15403" ph="UPDATE missi... " />
-                <marker date="1506542793217" expanded="true" signature="17547:17605" ph="SELECT kod F... missingValue" />
-                <marker date="1506542793217" expanded="true" signature="18082:18167" ph="UPDATE missi... " />
-                <marker date="1506542793217" expanded="true" signature="19829:19843" ph="SELECT * FRO... missingValue" />
-                <marker date="1506542793217" expanded="true" signature="48811:48904" ph="SELECT * FRO... missingValue" />
-                <marker date="1506542793217" expanded="true" signature="49499:49629" ph="INSERT INTO missingValue... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Filo_Mesaj_Data.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Filo_Mesaj_Data.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="36" column="142" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="36" selection-end-column="142" />
-              <folding>
-                <marker date="1506508067012" expanded="true" signature="1044:1125" ph="SELECT * FRO... missingValue" />
-                <marker date="1506508067012" expanded="true" signature="1423:1573" ph="INSERT INTO missingValue... " />
-                <marker date="1506508067012" expanded="true" signature="2621:2697" ph="UPDATE missi... " />
-                <marker date="1506508067012" expanded="true" signature="3260:3347" ph="SELECT * FRO... missingValue" />
-                <marker date="1506508067012" expanded="true" signature="3651:3788" ph="INSERT INTO missingValue... " />
-                <marker date="1506508067012" expanded="true" signature="4794:4876" ph="UPDATE missi... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Common.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Common.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="109" column="41" lean-forward="false" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="41" />
-              <folding>
-                <marker date="1506542793135" expanded="true" signature="3648:3755" ph="INSERT INTO missingValue... " />
-                <marker date="1506542793135" expanded="true" signature="3660:3703" ph="SELECT * FRO... missingValue" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="768">
-              <caret line="79" column="11" lean-forward="false" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
+            <state relative-caret-position="96">
+              <caret line="14" column="2" lean-forward="false" selection-start-line="14" selection-start-column="2" selection-end-line="27" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sefer_versiyonunu_gecersiz_yap</find>
+      <find>login_ok</find>
+    </findStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -200,15 +191,18 @@
         <option value="$PROJECT_DIR$/src/sample/Filo_Senkronizasyon.java" />
         <option value="$PROJECT_DIR$/src/sample/DBC.java" />
         <option value="$PROJECT_DIR$/src/sample/Filo_Login_Task.java" />
-        <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Filo_Download_Listener.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/Surucu_Data.java" />
         <option value="$PROJECT_DIR$/src/sample/Otobus.java" />
-        <option value="$PROJECT_DIR$/src/sample/GitasDBT.java" />
         <option value="$PROJECT_DIR$/src/sample/Filo_Mesaj_Data.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/sample/GitasDBT.java" />
         <option value="$PROJECT_DIR$/src/sample/Common.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
+        <option value="$PROJECT_DIR$/src/sample/Filo_Captcha_Controller.java" />
+        <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/bos.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/sample/Filo_Captcha_Scene.java" />
         <option value="$PROJECT_DIR$/src/sample/Filo_Download.java" />
       </list>
     </option>
@@ -236,7 +230,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>Spelling</id>
+            <id>Android</id>
           </State>
         </selected-state>
       </profile-state>
@@ -264,7 +258,6 @@
       <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -283,10 +276,18 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="gitas_fts_server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gitas_fts_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="Filo_Download.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -307,6 +308,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\gitas_fts_server\src\sample" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -319,7 +325,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Filo_Captcha_Scene">
+    <configuration name="Filo_Captcha_Scene" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="sample.Filo_Captcha_Scene" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="gitas_fts_server" />
+      <envs />
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -544,6 +569,15 @@
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Filo_Captcha_Scene" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.Filo_Captcha_Scene" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -563,12 +597,22 @@
       <workItem from="1505667120364" duration="87000" />
       <workItem from="1506357750238" duration="601000" />
       <workItem from="1506453053218" duration="611000" />
-      <workItem from="1506501093640" duration="16212000" />
+      <workItem from="1506501093640" duration="16875000" />
+      <workItem from="1506621644444" duration="1818000" />
+      <workItem from="1506628433406" duration="107000" />
+      <workItem from="1506674371155" duration="1128000" />
+      <workItem from="1506776444051" duration="597000" />
+      <workItem from="1506784406572" duration="1260000" />
+      <workItem from="1506949172112" duration="1392000" />
+      <workItem from="1507105921774" duration="1244000" />
+      <workItem from="1509818780050" duration="618000" />
+      <workItem from="1510567252863" duration="2488000" />
+      <workItem from="1511551916946" duration="2902000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20382000" />
+    <option name="totallyTimeSpent" value="34599000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -582,20 +626,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32790446" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1369936" sideWeight="0.6703755" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15298508" sideWeight="0.6703755" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -608,6 +651,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -618,7 +662,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -627,681 +671,111 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/Otobus.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Refresh_Listener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="522" column="12" lean-forward="false" selection-start-line="522" selection-start-column="12" selection-end-line="522" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Otobus#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle_eski#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle_eski#1;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_versiyonunu_gecersiz_yap#0;class#Otobus#0" expanded="false" />
-            <element signature="method#seferleri_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_versiyonlari_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#plaka_degisimlerini_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara_v2#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara_v1#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_verisi_ekle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#not_kontrol#0;class#Otobus#0" expanded="false" />
-            <element signature="method#plaka_guncelle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#iys_kontrolu_yap#0;class#Otobus#0" expanded="false" />
-            <element signature="method#zayi_sefer_kontrolu#0;class#Otobus#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="28" column="50" lean-forward="false" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/GitasDBT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="class#1979:4489" expanded="false" />
-            <element signature="class#6222:7931" expanded="false" />
-            <element signature="class#10827:13454" expanded="false" />
-            <element signature="class#13596:16232" expanded="false" />
-            <element signature="class#16374:18997" expanded="false" />
-            <element signature="class#Filo_Task#0" expanded="false" />
-            <element signature="class#Login_Task#0" expanded="false" />
-            <element signature="class#PDKS_Task#0" expanded="false" />
-            <element signature="method#nokta_ayikla#0;class#PDKS_Task#0" expanded="false" />
-            <element signature="class#Orer_Task#0" expanded="false" />
-            <element signature="class#Mesaj_Task#0" expanded="false" />
-            <element signature="class#IYS_Task#0" expanded="false" />
-            <marker date="1506542793217" expanded="true" signature="2640:2654" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="5028:5106" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="5365:5418" ph="DELETE FROM " />
-            <marker date="1506542793217" expanded="true" signature="7163:7246" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="9238:9296" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="9769:9855" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="12009:12067" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="12539:12625" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="14781:14839" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="15316:15403" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="17547:17605" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="18082:18167" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="19829:19843" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="48811:48904" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="49499:49629" ph="INSERT INTO missingValue... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Otobus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5180">
-          <caret line="376" column="9" lean-forward="false" selection-start-line="376" selection-start-column="9" selection-end-line="376" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Otobus#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle_eski#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle_eski#1;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_versiyonunu_gecersiz_yap#0;class#Otobus#0" expanded="false" />
-            <element signature="method#seferleri_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_versiyonlari_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#plaka_degisimlerini_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara_v2#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara_v1#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_verisi_ekle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#not_kontrol#0;class#Otobus#0" expanded="false" />
-            <element signature="method#plaka_guncelle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#iys_kontrolu_yap#0;class#Otobus#0" expanded="false" />
-            <element signature="method#zayi_sefer_kontrolu#0;class#Otobus#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="28" column="50" lean-forward="false" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/GitasDBT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="class#1979:4489" expanded="false" />
-            <element signature="class#6222:7931" expanded="false" />
-            <element signature="class#10827:13454" expanded="false" />
-            <element signature="class#13596:16232" expanded="false" />
-            <element signature="class#16374:18997" expanded="false" />
-            <element signature="class#Filo_Task#0" expanded="false" />
-            <element signature="class#Login_Task#0" expanded="false" />
-            <element signature="class#PDKS_Task#0" expanded="false" />
-            <element signature="method#nokta_ayikla#0;class#PDKS_Task#0" expanded="false" />
-            <element signature="class#Orer_Task#0" expanded="false" />
-            <element signature="class#Mesaj_Task#0" expanded="false" />
-            <element signature="class#IYS_Task#0" expanded="false" />
-            <marker date="1506542793217" expanded="true" signature="2640:2654" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="5028:5106" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="5365:5418" ph="DELETE FROM " />
-            <marker date="1506542793217" expanded="true" signature="7163:7246" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="9238:9296" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="9769:9855" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="12009:12067" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="12539:12625" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="14781:14839" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="15316:15403" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="17547:17605" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="18082:18167" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="19829:19843" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="48811:48904" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="49499:49629" ph="INSERT INTO missingValue... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Otobus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5180">
-          <caret line="376" column="9" lean-forward="false" selection-start-line="376" selection-start-column="9" selection-end-line="376" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Otobus#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle_eski#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle_eski#1;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_versiyonunu_gecersiz_yap#0;class#Otobus#0" expanded="false" />
-            <element signature="method#seferleri_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_versiyonlari_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#plaka_degisimlerini_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara_v2#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara_v1#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_verisi_ekle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#not_kontrol#0;class#Otobus#0" expanded="false" />
-            <element signature="method#plaka_guncelle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#iys_kontrolu_yap#0;class#Otobus#0" expanded="false" />
-            <element signature="method#zayi_sefer_kontrolu#0;class#Otobus#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="28" column="50" lean-forward="false" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/GitasDBT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="class#1979:4489" expanded="false" />
-            <element signature="class#6222:7931" expanded="false" />
-            <element signature="class#10827:13454" expanded="false" />
-            <element signature="class#13596:16232" expanded="false" />
-            <element signature="class#16374:18997" expanded="false" />
-            <element signature="class#Filo_Task#0" expanded="false" />
-            <element signature="class#Login_Task#0" expanded="false" />
-            <element signature="class#PDKS_Task#0" expanded="false" />
-            <element signature="method#nokta_ayikla#0;class#PDKS_Task#0" expanded="false" />
-            <element signature="class#Orer_Task#0" expanded="false" />
-            <element signature="class#Mesaj_Task#0" expanded="false" />
-            <element signature="class#IYS_Task#0" expanded="false" />
-            <marker date="1506542793217" expanded="true" signature="2640:2654" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="5028:5106" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="5365:5418" ph="DELETE FROM " />
-            <marker date="1506542793217" expanded="true" signature="7163:7246" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="9238:9296" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="9769:9855" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="12009:12067" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="12539:12625" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="14781:14839" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="15316:15403" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="17547:17605" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="18082:18167" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="19829:19843" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="48811:48904" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="49499:49629" ph="INSERT INTO missingValue... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Otobus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5180">
-          <caret line="376" column="9" lean-forward="true" selection-start-line="376" selection-start-column="9" selection-end-line="376" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Otobus#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle_eski#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle_eski#1;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_versiyonunu_gecersiz_yap#0;class#Otobus#0" expanded="false" />
-            <element signature="method#seferleri_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_versiyonlari_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#plaka_degisimlerini_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara_v2#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara_v1#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_verisi_ekle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#not_kontrol#0;class#Otobus#0" expanded="false" />
-            <element signature="method#plaka_guncelle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#iys_kontrolu_yap#0;class#Otobus#0" expanded="false" />
-            <element signature="method#zayi_sefer_kontrolu#0;class#Otobus#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="28" column="50" lean-forward="false" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/GitasDBT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="class#1979:4489" expanded="false" />
-            <element signature="class#6222:7931" expanded="false" />
-            <element signature="class#10827:13454" expanded="false" />
-            <element signature="class#13596:16232" expanded="false" />
-            <element signature="class#16374:18997" expanded="false" />
-            <element signature="class#Filo_Task#0" expanded="false" />
-            <element signature="class#Login_Task#0" expanded="false" />
-            <element signature="class#PDKS_Task#0" expanded="false" />
-            <element signature="method#nokta_ayikla#0;class#PDKS_Task#0" expanded="false" />
-            <element signature="class#Orer_Task#0" expanded="false" />
-            <element signature="class#Mesaj_Task#0" expanded="false" />
-            <element signature="class#IYS_Task#0" expanded="false" />
-            <marker date="1506542793217" expanded="true" signature="2640:2654" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="5028:5106" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="5365:5418" ph="DELETE FROM " />
-            <marker date="1506542793217" expanded="true" signature="7163:7246" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="9238:9296" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="9769:9855" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="12009:12067" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="12539:12625" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="14781:14839" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="15316:15403" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="17547:17605" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="18082:18167" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="19829:19843" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="48811:48904" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="49499:49629" ph="INSERT INTO missingValue... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="28" column="50" lean-forward="false" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/GitasDBT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="class#1979:4489" expanded="false" />
-            <element signature="class#6222:7931" expanded="false" />
-            <element signature="class#10827:13454" expanded="false" />
-            <element signature="class#13596:16232" expanded="false" />
-            <element signature="class#16374:18997" expanded="false" />
-            <element signature="class#Filo_Task#0" expanded="false" />
-            <element signature="class#Login_Task#0" expanded="false" />
-            <element signature="class#PDKS_Task#0" expanded="false" />
-            <element signature="method#nokta_ayikla#0;class#PDKS_Task#0" expanded="false" />
-            <element signature="class#Orer_Task#0" expanded="false" />
-            <element signature="class#Mesaj_Task#0" expanded="false" />
-            <element signature="class#IYS_Task#0" expanded="false" />
-            <marker date="1506542793217" expanded="true" signature="2640:2654" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="5028:5106" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="5365:5418" ph="DELETE FROM " />
-            <marker date="1506542793217" expanded="true" signature="7163:7246" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="9238:9296" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="9769:9855" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="12009:12067" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="12539:12625" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="14781:14839" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="15316:15403" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="17547:17605" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="18082:18167" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="19829:19843" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="48811:48904" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="49499:49629" ph="INSERT INTO missingValue... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="28" column="50" lean-forward="true" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/GitasDBT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="80">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Cookie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Otobus_Not.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/Otobus_Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="96">
+          <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
           <folding>
-            <element signature="e#374#375#0" expanded="false" />
-            <element signature="e#405#406#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Hat.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Sefer_Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="64">
+          <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Sefer_Sure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="56" lean-forward="true" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Refresh_Listener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/bos.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="29" />
+        <state relative-caret-position="32">
+          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="14" column="2" lean-forward="false" selection-start-line="14" selection-start-column="2" selection-end-line="27" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download_Listener.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Captcha_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Login_Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="49" column="22" lean-forward="true" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="826">
-          <caret line="60" column="10" lean-forward="false" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
+        <state relative-caret-position="16">
+          <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Filo_Senkronizasyon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1109">
-          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="198">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <marker date="1495022209215" expanded="true" signature="658:715" ph="SELECT * FRO... missingValue" />
+            <marker date="1495022209215" expanded="true" signature="1264:1350" ph="UPDATE missi... " />
+            <marker date="1495022209215" expanded="true" signature="3171:3240" ph="SELECT * FRO... missingValue" />
+            <marker date="1495022209215" expanded="true" signature="3395:3579" ph="INSERT INTO missingValue... " />
+            <marker date="1495022209215" expanded="true" signature="5607:5791" ph="INSERT INTO missingValue... " />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Surucu_Data.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Captcha_Scene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="33" column="14" lean-forward="false" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Otobus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="841">
-          <caret line="508" column="58" lean-forward="false" selection-start-line="508" selection-start-column="58" selection-end-line="508" selection-end-column="58" />
+        <state relative-caret-position="665">
+          <caret line="46" column="26" lean-forward="false" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Otobus#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle_eski#0;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_ekle_eski#1;class#Otobus#0" expanded="false" />
-            <element signature="method#pdks_kaydi_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_versiyonunu_gecersiz_yap#0;class#Otobus#0" expanded="false" />
-            <element signature="method#seferleri_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_versiyonlari_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#plaka_degisimlerini_al#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara_v2#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_hmin_tara_v1#0;class#Otobus#0" expanded="false" />
-            <element signature="method#sefer_verisi_ekle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#not_kontrol#0;class#Otobus#0" expanded="false" />
-            <element signature="method#plaka_guncelle#0;class#Otobus#0" expanded="false" />
-            <element signature="method#iys_kontrolu_yap#0;class#Otobus#0" expanded="false" />
-            <element signature="method#zayi_sefer_kontrolu#0;class#Otobus#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/PDKS_Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/PDKS_Aralik.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="79" column="11" lean-forward="false" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/GitasDBT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="28" column="37" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Common.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="109" column="41" lean-forward="false" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="41" />
-          <folding>
-            <marker date="1506542793135" expanded="true" signature="3648:3755" ph="INSERT INTO missingValue... " />
-            <marker date="1506542793135" expanded="true" signature="3660:3703" ph="SELECT * FRO... missingValue" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Mesaj_Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="36" column="142" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="36" selection-end-column="142" />
-          <folding>
-            <marker date="1506508067012" expanded="true" signature="1044:1125" ph="SELECT * FRO... missingValue" />
-            <marker date="1506508067012" expanded="true" signature="1423:1573" ph="INSERT INTO missingValue... " />
-            <marker date="1506508067012" expanded="true" signature="2621:2697" ph="UPDATE missi... " />
-            <marker date="1506508067012" expanded="true" signature="3260:3347" ph="SELECT * FRO... missingValue" />
-            <marker date="1506508067012" expanded="true" signature="3651:3788" ph="INSERT INTO missingValue... " />
-            <marker date="1506508067012" expanded="true" signature="4794:4876" ph="UPDATE missi... " />
+            <element signature="e#1903#1904#0" expanded="true" />
+            <element signature="e#1931#1932#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="149" column="9" lean-forward="true" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
+        <state relative-caret-position="521">
+          <caret line="1093" column="40" lean-forward="false" selection-start-line="1093" selection-start-column="40" selection-end-line="1093" selection-end-column="40" />
           <folding>
-            <element signature="class#1979:4489" expanded="false" />
-            <element signature="class#6222:7931" expanded="false" />
-            <element signature="class#10827:13454" expanded="false" />
-            <element signature="class#13596:16232" expanded="false" />
-            <element signature="class#16374:18997" expanded="false" />
-            <element signature="class#Filo_Task#0" expanded="false" />
-            <element signature="class#Login_Task#0" expanded="false" />
+            <element signature="class#Rotasyon_Task#0" expanded="false" />
             <element signature="class#PDKS_Task#0" expanded="false" />
-            <element signature="method#nokta_ayikla#0;class#PDKS_Task#0" expanded="false" />
             <element signature="class#Orer_Task#0" expanded="false" />
             <element signature="class#Mesaj_Task#0" expanded="false" />
             <element signature="class#IYS_Task#0" expanded="false" />
-            <marker date="1506542793217" expanded="true" signature="2640:2654" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="5028:5106" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="5365:5418" ph="DELETE FROM " />
-            <marker date="1506542793217" expanded="true" signature="7163:7246" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="9238:9296" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="9769:9855" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="12009:12067" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="12539:12625" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="14781:14839" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="15316:15403" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="17547:17605" ph="SELECT kod F... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="18082:18167" ph="UPDATE missi... " />
-            <marker date="1506542793217" expanded="true" signature="19829:19843" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="48811:48904" ph="SELECT * FRO... missingValue" />
-            <marker date="1506542793217" expanded="true" signature="49499:49629" ph="INSERT INTO missingValue... " />
+            <marker date="1511554676313" expanded="true" signature="2192:2206" ph="SELECT * FRO... missingValue" />
+            <marker date="1511554676313" expanded="true" signature="4616:4694" ph="SELECT kod F... missingValue" />
+            <marker date="1511554676313" expanded="true" signature="4953:5006" ph="DELETE FROM " />
+            <marker date="1511554676313" expanded="true" signature="7080:7138" ph="SELECT kod F... missingValue" />
+            <marker date="1511554676313" expanded="true" signature="7611:7697" ph="UPDATE missi... " />
+            <marker date="1511554676313" expanded="true" signature="9933:9991" ph="SELECT kod F... missingValue" />
+            <marker date="1511554676313" expanded="true" signature="10463:10549" ph="UPDATE missi... " />
+            <marker date="1511554676313" expanded="true" signature="12788:12846" ph="SELECT kod F... missingValue" />
+            <marker date="1511554676313" expanded="true" signature="13323:13410" ph="UPDATE missi... " />
+            <marker date="1511554676313" expanded="true" signature="15636:15694" ph="SELECT kod F... missingValue" />
+            <marker date="1511554676313" expanded="true" signature="16169:16254" ph="UPDATE missi... " />
+            <marker date="1511554676313" expanded="true" signature="43879:43972" ph="SELECT * FRO... missingValue" />
+            <marker date="1511554676313" expanded="true" signature="44567:44697" ph="INSERT INTO missingValue... " />
           </folding>
         </state>
       </provider>
@@ -1312,7 +786,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>JavaFXApp</last-edited>
+          <last-edited>gitas_fts_server:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

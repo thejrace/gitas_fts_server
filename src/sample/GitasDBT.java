@@ -26,6 +26,7 @@ public class GitasDBT {
             PLAKA_DEGISIMLERI = "app_plaka_degisim_bildirimleri",
             OTOBUS_DURAK_TAKIP = "app_otobus_durak_takip",
             SUNUCU_APP_CONFIG = "sunucu_app_config",
-            SUNUCU_APP_HATA_KAYITLARI = "sunucu_app_hata_kayitlari";
+            SUNUCU_APP_HATA_KAYITLARI = "sunucu_app_hata_kayitlari",
+            FILO_ORER_DEGISIKLIK_LOG = "filo_orer_degisiklik_log";
 
 }

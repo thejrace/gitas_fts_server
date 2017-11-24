@@ -123,6 +123,25 @@ public class Common {
         }
     }
 
+    public static void orer_degisiklik_log_kaydet( String oto, String tarih, String tip, int aktif_versiyon, int son_versiyon, int rows_size ){
+        try {
+            Connection con = DBC.getInstance().getConnection();
+            PreparedStatement pst = con.prepareStatement("INSERT INTO " + GitasDBT.FILO_ORER_DEGISIKLIK_LOG + " ( oto, tarih, tip, aktif_versiyon, son_versiyon, rows_size, timestamp ) VALUES ( ?, ?, ?, ?, ?, ?, ? )");
+            pst.setString(1, oto );
+            pst.setString(2, tarih );
+            pst.setString(3, tip );
+            pst.setInt(4, aktif_versiyon );
+            pst.setInt(5, son_versiyon );
+            pst.setInt(6, rows_size );
+            pst.setString(7, Common.get_current_datetime_db() );
+            pst.executeUpdate();
+            pst.close();
+            con.close();
+        } catch( SQLException e ){
+            e.printStackTrace();
+        }
+    }
+
     public static String regex_trim( String str ){
         return str.replaceAll("\u00A0", "");
     }
