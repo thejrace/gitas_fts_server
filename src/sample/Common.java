@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.YearMonth;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -48,6 +49,25 @@ public class Common {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static int month_day_count( int month_int, int year_int ){
+        YearMonth year_month_object = YearMonth.of(year_int, month_int);
+        return year_month_object.lengthOfMonth();
+    }
+
+    public static int month_int(){
+        java.util.Date date= new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.MONTH) + 1; // ocak = 0. index
+    }
+
+    public static int year_int(){
+        java.util.Date date= new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.YEAR);
     }
 
     public static boolean dt_gecmis( String d1, String d2 ){
