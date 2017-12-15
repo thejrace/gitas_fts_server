@@ -17,6 +17,8 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -26,6 +28,19 @@ import java.util.regex.Pattern;
  * Created by Obarey on 05.02.2017.
  */
 public class Common {
+
+    public static String convert_url_hex( String data ){
+        return data.replace("Ü", "%DC").
+                replace("ü", "%DC").
+                replace("İ", "%DD").
+                replace("Ö", "%D6").
+                replace("ö", "%D6").
+                replace("Ş", "%DE").
+                replace("ş", "%DE").
+                replace("Ç", "%C7").
+                replace("ç", "%C7");
+    }
+
 
     public static String mac_hash(){
         try {

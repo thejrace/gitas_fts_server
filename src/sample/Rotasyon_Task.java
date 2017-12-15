@@ -18,6 +18,9 @@ class Rotasyon_Task extends Filo_Task{
         this.otobusler = otobusler;
 
     }
+    public Map<String, Otobus_Rotasyon> get_data(){
+        return rotasyon_liste;
+    }
     public void yap(){
         oto = ""; // Filo_Task url in sonuna ekliyor otoyu o yuzden bosluk yap
         // her kod icin yapicaz
@@ -82,7 +85,8 @@ class Rotasyon_Task extends Filo_Task{
                             }
                         }
                     }
-                    System.out.println("[ OTO: " + entry.getKey() + "] [ HAT: " + cols.get(0).text() + " ] [ TABELA: " + cols.get(1).text() + " ] [ GÜN: " + (cc) + " ]");
+                    //System.out.println("[ OTO: " + entry.getKey() + "] [ HAT: " + cols.get(0).text() + " ] [ TABELA: " + cols.get(1).text() + " ] [ GÜN: " + (cc) + " ]");
+
                     rotasyon_liste.get(entry.getKey()).plan_ekle( new Hat_Tabela_Data( cc, cols.get(0).text(), cols.get(1).text()));
                     // sutun hic degismiyecek hep sağa kayacak
                     cc++;

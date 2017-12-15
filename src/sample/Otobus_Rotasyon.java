@@ -35,8 +35,14 @@ class Hat_Tabela_Data {
     public String get_hat(){
         return hat;
     }
-    public int get_gun(){
-        return gun;
+    public String get_gun(){
+        String st = String.valueOf(gun);
+        if( st.length() == 1 ) return "0"+st;
+        return st;
+    }
+    @Override
+    public String toString(){
+        return get_hat() +"  TABELA: " + get_tabela() +"  GÜN: " + get_gun();
     }
 }
 

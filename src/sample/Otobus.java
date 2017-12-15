@@ -40,6 +40,28 @@ public class Otobus {
         }
     }
 
+    public void rotasyon_ekle( String tarih, String hat, ArrayList<String> orer_liste ){
+        try {
+            Connection con = DBC.getInstance().getConnection();
+            PreparedStatement pst = null;
+            int no = 1;
+            for( String orer : orer_liste ){
+                pst = con.prepareStatement("INSERT INTO " + GitasDBT.FILO_ORER_ROTASYON + " ( oto, orer, tarih, hat, no ) VALUES ( ?, ?, ?, ?, ?)");
+                pst.setString(1, kapi_kodu);
+                pst.setString(2, orer);
+                pst.setString(3, tarih );
+                pst.setString(4, hat );
+                pst.setString(5, String.valueOf(no));
+                no++;
+                pst.executeUpdate();
+            }
+            if( pst != null ) pst.close();
+            con.close();
+        }catch( SQLException e ){
+            e.printStackTrace();
+        }
+    }
+
     public void pdks_kaydi_ekle( String tarih, int no, String surucu, String kart_okutma_saati, int tip ){
         // kayit eklenirken aktif plaka degil degisimlerden plaka bilgisini aliyoruz
         Map<String, String> sefer_hmin_tara = sefer_hmin_tara( tarih, kart_okutma_saati );
