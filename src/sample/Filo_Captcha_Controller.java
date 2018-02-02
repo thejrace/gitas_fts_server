@@ -137,7 +137,7 @@ public class Filo_Captcha_Controller implements Initializable {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            web_view_init( "dk_oasfilo", "oas.123");
+                            web_view_init( "dk_oasfilo", "oas-1040");
                         }
                     });
                 } catch( IOException e ){

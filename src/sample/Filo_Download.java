@@ -31,13 +31,15 @@ public class Filo_Download implements Runnable {
     private int orer_download_frekans        = 120,
                 mesaj_download_frekans       = 120,
                 iys_download_frekans         = 120,
-                pdks_download_frekans        = 120;
+                pdks_download_frekans        = 120,
+                hiz_download_frekans        = 120;
     private String aktif_tarih = "INIT";
 
     private int orer_download_durum = 1,
                     pdks_download_durum = 1,
                     iys_download_durum = 1,
-                    mesaj_download_durum = 1;
+                    mesaj_download_durum = 1,
+                    hiz_download_durum = 1;
 
     public void start(){
         if( thread == null ){
@@ -81,11 +83,15 @@ public class Filo_Download implements Runnable {
                         pdks_download_durum = res.getInt("pdks_download_durum");
                         pdks_download_frekans = res.getInt("pdks_download_frekans");
 
+                        hiz_download_durum = res.getInt("hiz_download_durum");
+                        pdks_download_frekans = res.getInt("hiz_download_frekans");
+
                         //System.out.println("filo_giriş_frekans => " + login_frekans );
                         System.out.println("orer_download_durum => " + orer_download_durum );
                         System.out.println("mesaj_download_durum => " + mesaj_download_durum );
                         System.out.println("iys_download_durum => " + iys_download_durum );
                         System.out.println("pdks_download_durum => " + pdks_download_durum );
+                        System.out.println("hiz_download_durum => " + hiz_download_durum );
 
                         res.close();
                         pst.close();
@@ -104,7 +110,7 @@ public class Filo_Download implements Runnable {
             }
         });
         main_thread.setDaemon(true);
-        //main_thread.start();
+        main_thread.start();
 
         Thread eski_veri_silme_thread = new Thread(new Runnable() {
             @Override
@@ -142,7 +148,7 @@ public class Filo_Download implements Runnable {
             }
         });
         eski_veri_silme_thread.setDaemon(true);
-        //eski_veri_silme_thread.start();
+        eski_veri_silme_thread.start();
 
         Thread orer_download_thread = new Thread(new Runnable() {
             private int frekans;
@@ -206,7 +212,7 @@ public class Filo_Download implements Runnable {
             }
         });
         orer_download_thread.setDaemon(true);
-        ///orer_download_thread.start();
+        orer_download_thread.start();
 
         Thread pdks_download_thread = new Thread(new Runnable() {
             private int frekans;
@@ -270,7 +276,60 @@ public class Filo_Download implements Runnable {
             }
         });
         pdks_download_thread.setDaemon(true);
-        //pdks_download_thread.start();
+        pdks_download_thread.start();
+
+        Thread hiz_download_thread = new Thread(new Runnable() {
+            private int frekans;
+            @Override
+            public void run() {
+                Connection con;
+                PreparedStatement pst;
+                ResultSet res;
+                Hiz_Download_Task hiz_download_task;
+                while( true ) {
+                    if( hiz_download_durum ==  0 ){
+                        try {
+                            System.out.println("HIZ DOWNLOAD DURDURULMUŞ!");
+                            Thread.sleep(20000);
+                            continue;
+                        } catch( InterruptedException e ){
+                            e.printStackTrace();
+                        }
+                    }
+                    frekans = hiz_download_frekans * 1000;
+                    try {
+                        con = DBC.getInstance().getConnection();
+                        pst = con.prepareStatement("SELECT kod FROM " + GitasDBT.OTOBUSLER + " WHERE durum = ?");
+                        pst.setInt(1, 1);
+                        res = pst.executeQuery();
+                        while (res.next()) {
+                            hiz_download_task = new Hiz_Download_Task(res.getString("kod") );
+                            hiz_download_task.yap();
+                        }
+                        try {
+                            pst = con.prepareStatement( "UPDATE " + GitasDBT.SUNUCU_APP_CONFIG + " SET hiz_download_timestamp = ? WHERE id = ?");
+                            pst.setString(1, Common.get_current_datetime_db());
+                            pst.setInt(2,1);
+                            pst.execute();
+                        } catch( SQLException e ){
+                            e.printStackTrace();
+                        }
+                        res.close();
+                        pst.close();
+                        con.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        Thread.sleep(frekans);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        hiz_download_thread.setDaemon(true);
+        hiz_download_thread.start();
 
         Thread mesaj_download_thread = new Thread(new Runnable() {
             private int frekans;
@@ -334,7 +393,7 @@ public class Filo_Download implements Runnable {
             }
         });
         mesaj_download_thread.setDaemon(true);
-        //mesaj_download_thread.start();
+        mesaj_download_thread.start();
 
         Thread iys_download_thread = new Thread(new Runnable() {
             private int frekans;
@@ -400,22 +459,8 @@ public class Filo_Download implements Runnable {
             }
         });
         iys_download_thread.setDaemon(true);
-        //iys_download_thread.start();
+        iys_download_thread.start();
 
-        Thread rotasyon_thread = new Thread(new Runnable() {
-            private int frekans;
-            @Override
-            public void run() {
-
-
-
-
-
-
-            }
-        });
-        rotasyon_thread.setDaemon(true);
-        rotasyon_thread.start();
 
     }
 

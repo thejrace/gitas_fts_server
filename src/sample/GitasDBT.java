@@ -28,6 +28,7 @@ public class GitasDBT {
             SUNUCU_APP_CONFIG = "sunucu_app_config",
             SUNUCU_APP_HATA_KAYITLARI = "sunucu_app_hata_kayitlari",
             FILO_ORER_DEGISIKLIK_LOG = "filo_orer_degisiklik_log",
-            FILO_ORER_ROTASYON = "filo_orer_rotasyon";
+            FILO_ORER_ROTASYON = "filo_orer_rotasyon",
+            FILO_HIZ_KAYITLARI = "filo_hiz_kayitlari";
 
 }

@@ -42,11 +42,11 @@ public class Filo_Captcha_Scene extends Application {
                 @Override
                 public void on_refresh() {
                     try{
-                        //Filo_Download fd = new Filo_Download();
-                        //fd.start();
+                        Filo_Download fd = new Filo_Download();
+                        fd.start();
 
-                        Test test = new Test();
-                        test.init();
+                        //Test test = new Test();
+                        //test.init();
 
                         //stage.close();
                     } catch( Exception e ){
