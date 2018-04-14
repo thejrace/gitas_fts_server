@@ -15,9 +15,7 @@ public class Otobus {
 
     private String kapi_kodu;
     private boolean ok = true;
-
     private String ruhsat_plaka, aktif_plaka;
-
     public Otobus( String kapi_kodu ){
         this.kapi_kodu = kapi_kodu;
 
@@ -39,7 +37,6 @@ public class Otobus {
             e.printStackTrace();
         }
     }
-
     public void rotasyon_ekle( String tarih, String hat, ArrayList<String> orer_liste ){
         try {
             Connection con = DBC.getInstance().getConnection();
@@ -61,7 +58,6 @@ public class Otobus {
             e.printStackTrace();
         }
     }
-
     public void pdks_kaydi_ekle( String tarih, int no, String surucu, String kart_okutma_saati, int tip ){
         // kayit eklenirken aktif plaka degil degisimlerden plaka bilgisini aliyoruz
         Map<String, String> sefer_hmin_tara = sefer_hmin_tara( tarih, kart_okutma_saati );
@@ -93,7 +89,6 @@ public class Otobus {
         }
 
     }
-
     public void pdks_kaydi_ekle_eski( String tarih, String surucu, String kart_okutma_saati, int tip ){
         // kayit eklenirken aktif plaka degil degisimlerden plaka bilgisini aliyoruz
         Map<String, String> sefer_hmin_tara = sefer_hmin_tara( tarih, kart_okutma_saati );
@@ -171,7 +166,6 @@ public class Otobus {
             e.printStackTrace();
         }
     }
-
     public ArrayList<PDKS_Data> pdks_kaydi_al( String tarih ){
         ArrayList<PDKS_Data> output = new ArrayList<>();
         try {
@@ -192,7 +186,6 @@ public class Otobus {
         }
         return output;
     }
-
     public void sefer_versiyonunu_gecersiz_yap( String tarih, int versiyon ){
         try {
             Connection con = DBC.getInstance().getConnection();
@@ -208,7 +201,6 @@ public class Otobus {
             e.printStackTrace();
         }
     }
-
     public ArrayList<Sefer_Data> seferleri_al( String tarih, int versiyon ){
         ArrayList<Sefer_Data> output = new ArrayList<>();
         try {
@@ -252,7 +244,6 @@ public class Otobus {
         }
         return output;
     }
-
     public ArrayList<Integer> sefer_versiyonlari_al( String tarih ){
         ArrayList<Integer> output = new ArrayList<>();
         try {
@@ -270,7 +261,6 @@ public class Otobus {
         }
         return output;
     }
-
     // aracin son uc plaka degisimini aliyoruz
     public ArrayList<Map<String, String>> plaka_degisimlerini_al(){
         ArrayList<Map<String, String>> output = new ArrayList<>();
@@ -298,7 +288,6 @@ public class Otobus {
         }
         return output;
     }
-
     public Map<String, String> sefer_hmin_tara( String aktif_tarih, String hmin ){
         Map<String, String> output = new HashMap<>();
         ArrayList<PDKS_Data> pdks_kayitlar = pdks_kaydi_al( aktif_tarih );
@@ -348,7 +337,6 @@ public class Otobus {
             c++;
             //System.out.println( kapi_kodu + " ARALIK1 [ " + aralik.get_surucu() + " ] [ " + aralik.get_binis() + " ] [ " + aralik.get_inis() + " ]" );
         }
-
         ArrayList<PDKS_Aralik> araliklar_final = new ArrayList<>();
         for( int x = 0; x < araliklar.size(); x++ ){
             aralik = araliklar.get(x);
@@ -413,7 +401,6 @@ public class Otobus {
         }
         return output;
     }
-
     @Deprecated
     public Map<String, String> sefer_hmin_tara_v2( String aktif_tarih, String hmin ){
         Map<String, String> output = new HashMap<>();
@@ -448,7 +435,6 @@ public class Otobus {
 
         return output;
     }
-
     @Deprecated
     // filo mesajlarini surucu - plaka ile eşleştirme
     public Map<String, String> sefer_hmin_tara_v1(String aktif_tarih, String hmin ){
@@ -482,7 +468,6 @@ public class Otobus {
         }
         return output;
     }
-
     public void sefer_verisi_ekle( String tarih, Sefer_Data sefer_data ){
         try {
             Connection con = DBC.getInstance().getConnection();
@@ -514,7 +499,6 @@ public class Otobus {
         }
 
     }
-
     public void sefer_verisi_guncelle( String tarih, Sefer_Data sefer_data ){
         try {
             Connection con = DBC.getInstance().getConnection();
@@ -543,7 +527,6 @@ public class Otobus {
             e.printStackTrace();
         }
     }
-
     public void aktif_durak_bilgisi_guncelle( String durak ){
         Connection con;
         PreparedStatement pst;
@@ -574,7 +557,6 @@ public class Otobus {
 
 
     }
-
     public boolean not_kontrol(){
         boolean output = false;
         try {
@@ -592,7 +574,6 @@ public class Otobus {
         return output;
 
     }
-
     public boolean plaka_guncelle( String _aktif_plaka, String _ruhsat_plaka, String tarih ){
         try {
             Connection con = DBC.getInstance().getConnection();
@@ -616,7 +597,6 @@ public class Otobus {
         }
         return false;
     }
-
     public boolean iys_kontrolu_yap(){
         boolean output = false;
         try {
@@ -634,7 +614,6 @@ public class Otobus {
         }
         return output;
     }
-
     public boolean zayi_sefer_kontrolu(){
         boolean output = false;
         try {
@@ -655,11 +634,9 @@ public class Otobus {
         }
         return output;
     }
-
     public boolean is_ok(){
         return this.ok;
     }
-
     public String get_kapi_kodu(){
         return this.kapi_kodu;
     }
@@ -669,7 +646,6 @@ public class Otobus {
     public String get_aktif_plaka(){
         return this.aktif_plaka;
     }
-
     public boolean plaka_degismis(){
         return !aktif_plaka.equals(ruhsat_plaka);
     }

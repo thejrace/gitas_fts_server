@@ -13,31 +13,24 @@ import java.sql.Statement;
  * PHP deki class in java versiyonu
  */
 public class Filo_Senkronizasyon {
-
     private static String aktif_gun;
-
     public static void aktif_gun_hesapla( /*String son_orer*/ ){
         Connection con = null;
         Statement st = null;
         ResultSet res = null;
-
         try{
             con = DBC.getInstance().getConnection();
-
             st = con.createStatement();
             res = st.executeQuery("SELECT * FROM " + GitasDBT.ORER_LOG + " WHERE durum = '1' ");
             if( res.next() ){
                 // eski kayit var
                 if(  Double.valueOf(res.getString("gecerlilik")) < Common.get_unix() ){
                     // artik gecerli degil bu tarih
-
                     if( Double.valueOf(res.getString("sonraki_gun_hesaplama")) < Common.get_unix() ){
                         // bir sonraki gunun hesaplama saati gelmiş||geçmiş
-
                         // onceki gunun durumunu 0 yapiyoruz once
                         st = con.createStatement();
                         st.executeUpdate("UPDATE " + GitasDBT.ORER_LOG + " SET durum = '0' WHERE id = '"+ res.getString("id")+"' ");
-
                         // ( suan dan son orer e kadar olan saniye ) + ( SIMDI ) --> gecerlilik unix
                         long gecerlilik_dk_uzun = Sefer_Sure.hesapla_uzun( Common.get_current_hmin(), "02:00" );
                         long gecerlilik_kisa = Sefer_Sure.hesapla( Common.get_current_hmin(), "02:00" );
@@ -59,7 +52,6 @@ public class Filo_Senkronizasyon {
                             sonraki_gun_hesaplama = gecerlilik + 13500;
                             aktif_gun = Common.get_current_date();
                         }
-
                         // yeni kaydi ekle
                         ResultSet kontrol = null;
                         st = con.createStatement();
@@ -79,7 +71,6 @@ public class Filo_Senkronizasyon {
                 }
             } else {
                 // ilk kayit
-
                 // ( suan dan son orer e kadar olan saniye ) + ( SIMDI ) --> gecerlilik unix
                 long gecerlilik_dk_uzun = Sefer_Sure.hesapla_uzun( Common.get_current_hmin(), "02:00" );
                 long gecerlilik_kisa = Sefer_Sure.hesapla( Common.get_current_hmin(), "02:00" );
@@ -101,12 +92,9 @@ public class Filo_Senkronizasyon {
                     sonraki_gun_hesaplama = gecerlilik + 13500;
                     aktif_gun = Common.get_current_date();
                 }
-
                 // yeni kaydi ekle
                 st = con.createStatement();
                 st.executeUpdate( "INSERT INTO " + GitasDBT.ORER_LOG + "  ( tarih, son_orer, gecerlilik, sonraki_gun_hesaplama, durum ) VALUES ( '"+aktif_gun+"', '03', '"+gecerlilik+"', '"+sonraki_gun_hesaplama+"', '1')  ");
-
-
             }
         } catch( SQLException e ){
             try {

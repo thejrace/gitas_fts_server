@@ -22,11 +22,19 @@ public class DBC {
 
     private static DBC     instance;
     private BasicDataSource ds;
-    private String dbAddress = "jdbc:mysql://localhost:3306/";
+    // vargonen old
+    /*private String dbAddress = "jdbc:mysql://localhost:3306/";
     private String userPass = "?user=root&password=kuw@GmQ3!bZLB*j3O";
     private String dbName = "gitas_filo_takip";
     private String userName = "root";
-    private String password = "kuw@GmQ3!bZLB*j3O";
+    private String password = "kuw@GmQ3!bZLB*j3O";*/
+
+
+    private String dbAddress = "jdbc:mysql://localhost:3306/";
+    private String userPass = "?user=root&password=mEP3isJVWqYPL";
+    private String dbName = "db3_gitas_filo_takip";
+    private String userName = "root";
+    private String password = "mEP3isJVWqYPL";
 
 
 
