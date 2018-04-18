@@ -38,7 +38,7 @@ public class Hiz_Download_Task extends Filo_Task {
                 pst.executeUpdate();
                 pst.close();
                 con.close();
-            } catch( SQLException e ){
+            } catch( SQLException | ArrayIndexOutOfBoundsException e ){
                 e.printStackTrace();
             }
         } catch( NullPointerException e ){

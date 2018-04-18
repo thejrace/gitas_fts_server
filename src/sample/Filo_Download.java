@@ -32,7 +32,7 @@ public class Filo_Download implements Runnable {
                 mesaj_download_frekans       = 120,
                 iys_download_frekans         = 120,
                 pdks_download_frekans        = 120,
-                hiz_download_frekans        = 120;
+                hiz_download_frekans         = 120;
     private String aktif_tarih = "INIT";
 
     private int orer_download_durum = 1,
@@ -84,14 +84,14 @@ public class Filo_Download implements Runnable {
                         pdks_download_frekans = res.getInt("pdks_download_frekans");
 
                         hiz_download_durum = res.getInt("hiz_download_durum");
-                        pdks_download_frekans = res.getInt("hiz_download_frekans");
+                        hiz_download_frekans = res.getInt("hiz_download_frekans");
 
                         //System.out.println("filo_giriş_frekans => " + login_frekans );
-                        System.out.println("orer_download_durum => " + orer_download_durum );
-                        System.out.println("mesaj_download_durum => " + mesaj_download_durum );
-                        System.out.println("iys_download_durum => " + iys_download_durum );
-                        System.out.println("pdks_download_durum => " + pdks_download_durum );
-                        System.out.println("hiz_download_durum => " + hiz_download_durum );
+                        System.out.println("orer_download_durum => " + orer_download_durum + " ( "+orer_download_frekans+" ) " );
+                        System.out.println("mesaj_download_durum => " + mesaj_download_durum + " ( "+mesaj_download_frekans+" ) " );
+                        System.out.println("iys_download_durum => " + iys_download_durum + " ( "+iys_download_frekans+" ) " );
+                        System.out.println("pdks_download_durum => " + pdks_download_durum + " ( "+pdks_download_frekans+" ) " );
+                        System.out.println("hiz_download_durum => " + hiz_download_durum + " ( "+hiz_download_frekans+" ) " );
 
                         res.close();
                         pst.close();
