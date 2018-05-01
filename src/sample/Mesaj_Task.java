@@ -18,10 +18,10 @@ class Mesaj_Task extends Filo_Task {
     }
     public void yap(){
         if( aktif_tarih.equals("BEKLEMEDE") ) return;
-        System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "[ "+ oto + " GELEN MESAJ DOWNLOAD ]");
+        System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "[ "+ oto + " MESAJ DOWNLOAD ]");
         veri_ayikla( parse_html( istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konum=ana&konu=mesaj&oto=") ), false );
 
-        System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "[ "+ oto + " GİDEN MESAJ DOWNLOAD ]");
+        //System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "[ "+ oto + " GİDEN MESAJ DOWNLOAD ]");
         veri_ayikla( parse_html( istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konu=mesaj&mtip=gelen&oto=") ), true );
     }
 
@@ -48,7 +48,6 @@ class Mesaj_Task extends Filo_Task {
                 cols = row.select("td");
                 mesaj_saat = Common.regex_trim( cols.get(3).getElementsByTag("small").text() );
                 mesaj_ekstra_data = otobus.sefer_hmin_tara( aktif_tarih, mesaj_saat );
-
                 mesaj = new Filo_Mesaj_Data( oto,
                         mesaj_ekstra_data.get("plaka"),
                         mesaj_ekstra_data.get("surucu"),
@@ -58,7 +57,6 @@ class Mesaj_Task extends Filo_Task {
                         aktif_tarih,
                         0
                 );
-
                 if( giden ){
                     mesaj.giden_mesaj_ekle(rows.size()-i);
                 } else {

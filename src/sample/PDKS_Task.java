@@ -53,7 +53,6 @@ class PDKS_Task extends Filo_Task {
                 row = rows.get(i);
                 cols = row.select("td");
                 kart_basma_col_text = cols.get(4).text();
-
                 //System.out.println(kart_basma_col_text);
                 try {
                     if (kart_basma_col_text.contains("PDKS_Kart Binen ")) {
@@ -70,12 +69,10 @@ class PDKS_Task extends Filo_Task {
                     //System.out.println(oto + " PDKS --> [" + tip + " " + sicil_no + "] [" + isim + "]");
                     if (kaydet) {
                         surucu = new Surucu_Data(sicil_no);
-
                         if (!surucu.kontrol()) {
                             // eger surucu kayitli degilse noktaya istek yapiyoruz
                             //surucu_noktaya_istek();
                             surucu.ekle( sicil_no, isim, "-1");
-
                         }
                         otobus.pdks_kaydi_ekle(aktif_tarih, rows.size()-i, sicil_no, Common.regex_trim(cols.get(3).getAllElements().get(0).text()), tip);
                     }

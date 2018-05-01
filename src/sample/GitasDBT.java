@@ -29,6 +29,7 @@ public class GitasDBT {
             SUNUCU_APP_HATA_KAYITLARI = "sunucu_app_hata_kayitlari",
             FILO_ORER_DEGISIKLIK_LOG = "filo_orer_degisiklik_log",
             FILO_ORER_ROTASYON = "filo_orer_rotasyon",
-            FILO_HIZ_KAYITLARI = "filo_hiz_kayitlari";
-
+            FILO_HIZ_KAYITLARI = "filo_hiz_kayitlari",
+            OTOBUS_AKTIF_DURUM = "app_otobus_aktif_durum",
+            OTOBUS_ALARM_DATA = "app_alarm_data";
 }

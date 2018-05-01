@@ -39,7 +39,7 @@ public class Surucu_Data {
                 this.isim = res.getString("isim");
                 this.telefon = res.getString("telefon");
             } else {
-                System.out.println(sicil_no + " Sürücü yok tabloda");
+                //System.out.println(sicil_no + " Sürücü yok tabloda");
                 kontrol = false;
             }
             res.close();

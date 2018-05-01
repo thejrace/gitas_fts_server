@@ -12,6 +12,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class Filo_Captcha_Scene extends Application {
 
     private VBox root;
@@ -42,12 +46,21 @@ public class Filo_Captcha_Scene extends Application {
                 @Override
                 public void on_refresh() {
                     try{
+                        try {
+                            Connection con =  DBC.getInstance().getConnection();
+                            PreparedStatement pst = con.prepareStatement( "UPDATE " + GitasDBT.SUNUCU_APP_CONFIG + " SET filo_giris_timestamp = ? WHERE id = ?");
+                            pst.setString(1, Common.get_current_datetime_db());
+                            pst.setInt(2,1);
+                            pst.execute();
+                            pst.close();
+                            con.close();
+                        } catch( SQLException e ){
+                            e.printStackTrace();
+                        }
                         Filo_Download fd = new Filo_Download();
                         fd.start();
-
                         //Test test = new Test();
                         //test.init();
-
                         //stage.close();
                     } catch( Exception e ){
                         e.printStackTrace();
