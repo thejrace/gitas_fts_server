@@ -31,5 +31,7 @@ public class GitasDBT {
             FILO_ORER_ROTASYON = "filo_orer_rotasyon",
             FILO_HIZ_KAYITLARI = "filo_hiz_kayitlari",
             OTOBUS_AKTIF_DURUM = "app_otobus_aktif_durum",
-            OTOBUS_ALARM_DATA = "app_alarm_data";
+            OTOBUS_ALARM_DATA = "app_alarm_data",
+            OTOBUS_ALARM_DATA_GORENLER = "app_alarm_data_gorenler",
+            APP_KULLANICILAR = "app_kullanicilar";
 }
