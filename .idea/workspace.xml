@@ -9,9 +9,10 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/gitas_fts_server_jar/gitas_fts_server.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/gitas_fts_server_jar/gitas_fts_server.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/GitasDBT.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/GitasDBT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/DBC$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/DBC$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/DBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/DBC.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Orer_Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Orer_Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/GitasDBT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GitasDBT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/DBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/DBC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Orer_Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Orer_Task.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -78,8 +79,8 @@
       <file leaf-file-name="Filo_Download.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-201">
-              <caret line="102" column="21" lean-forward="true" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
+            <state relative-caret-position="-340">
+              <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#5356:10106" />
@@ -88,7 +89,6 @@
                 <element signature="class#15946:18152" />
                 <element signature="class#18292:20822" />
                 <element signature="class#20964:23663" />
-                <element signature="class#23832:26481" />
                 <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
               </folding>
             </state>
@@ -98,10 +98,11 @@
       <file leaf-file-name="Orer_Task.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Orer_Task.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="553" column="71" selection-start-line="553" selection-start-column="71" selection-end-line="553" selection-end-column="71" />
+            <state relative-caret-position="958">
+              <caret line="625" column="1" lean-forward="true" selection-start-line="625" selection-start-column="1" selection-end-line="625" selection-end-column="1" />
               <folding>
                 <element signature="method#sefer_veri_ayikla#0;class#Orer_Task#0" />
+                <element signature="method#alarm_ekle#0;class#Orer_Task#0" />
               </folding>
             </state>
           </provider>
@@ -110,8 +111,8 @@
       <file leaf-file-name="DBC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/DBC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="26" column="46" lean-forward="true" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+            <state relative-caret-position="272">
+              <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -183,9 +184,9 @@
         <option value="$PROJECT_DIR$/src/sample/Orer_Mobil_Download.java" />
         <option value="$PROJECT_DIR$/src/sample/Alarm_Data.java" />
         <option value="$PROJECT_DIR$/src/sample/GitasDBT.java" />
-        <option value="$PROJECT_DIR$/src/sample/DBC.java" />
-        <option value="$PROJECT_DIR$/src/sample/Filo_Download.java" />
         <option value="$PROJECT_DIR$/src/sample/Orer_Task.java" />
+        <option value="$PROJECT_DIR$/src/sample/Filo_Download.java" />
+        <option value="$PROJECT_DIR$/src/sample/DBC.java" />
       </list>
     </option>
   </component>
@@ -232,7 +233,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -257,6 +257,7 @@
       </pane>
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -576,16 +577,16 @@
       <workItem from="1524735119581" duration="1850000" />
       <workItem from="1525024260381" duration="625000" />
       <workItem from="1525174062876" duration="15348000" />
-      <workItem from="1525257924942" duration="2378000" />
+      <workItem from="1525257924942" duration="2591000" />
+      <workItem from="1525535792020" duration="1487000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119905000" />
+    <option name="totallyTimeSpent" value="121605000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="10" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -601,7 +602,7 @@
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32899022" />
       <window_info id="Capture Tool" order="0" />
       <window_info id="Designer" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.6703755" visible="true" weight="0.15831557" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.6703755" visible="true" weight="0.15991472" />
       <window_info anchor="right" id="Database" order="9" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="5" weight="0.25" />
@@ -653,7 +654,6 @@
             <element signature="class#15946:18152" />
             <element signature="class#18292:20822" />
             <element signature="class#20964:23663" />
-            <element signature="class#23832:26481" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
@@ -706,7 +706,6 @@
             <element signature="class#15946:18152" />
             <element signature="class#18292:20822" />
             <element signature="class#20964:23663" />
-            <element signature="class#23832:26481" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
@@ -752,7 +751,6 @@
             <element signature="class#15946:18152" />
             <element signature="class#18292:20822" />
             <element signature="class#20964:23663" />
-            <element signature="class#23832:26481" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
@@ -798,7 +796,6 @@
             <element signature="class#15946:18152" />
             <element signature="class#18292:20822" />
             <element signature="class#20964:23663" />
-            <element signature="class#23832:26481" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
@@ -844,7 +841,6 @@
             <element signature="class#15946:18152" />
             <element signature="class#18292:20822" />
             <element signature="class#20964:23663" />
-            <element signature="class#23832:26481" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
@@ -890,7 +886,6 @@
             <element signature="class#15946:18152" />
             <element signature="class#18292:20822" />
             <element signature="class#20964:23663" />
-            <element signature="class#23832:26481" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
@@ -922,7 +917,6 @@
             <element signature="class#15946:18152" />
             <element signature="class#18292:20822" />
             <element signature="class#20964:23663" />
-            <element signature="class#23832:26481" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
@@ -1050,15 +1044,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/DBC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="26" column="46" lean-forward="true" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+        <state relative-caret-position="272">
+          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-201">
-          <caret line="102" column="21" lean-forward="true" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
+        <state relative-caret-position="-340">
+          <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#5356:10106" />
@@ -1067,7 +1061,6 @@
             <element signature="class#15946:18152" />
             <element signature="class#18292:20822" />
             <element signature="class#20964:23663" />
-            <element signature="class#23832:26481" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
@@ -1075,10 +1068,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Orer_Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="553" column="71" selection-start-line="553" selection-start-column="71" selection-end-line="553" selection-end-column="71" />
+        <state relative-caret-position="958">
+          <caret line="625" column="1" lean-forward="true" selection-start-line="625" selection-start-column="1" selection-end-line="625" selection-end-column="1" />
           <folding>
             <element signature="method#sefer_veri_ayikla#0;class#Orer_Task#0" />
+            <element signature="method#alarm_ekle#0;class#Orer_Task#0" />
           </folding>
         </state>
       </provider>

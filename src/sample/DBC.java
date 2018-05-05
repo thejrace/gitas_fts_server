@@ -26,7 +26,6 @@ public class DBC {
     private String userName = "root";
     private String password = "mEP3isJVWqYPL";
 
-
     // LOCAL 01.05.2018
     /*private String dbAddress = "jdbc:mysql://localhost:3306/";
     private String userPass = "?user=root&password=";

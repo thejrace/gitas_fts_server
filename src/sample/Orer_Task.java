@@ -26,7 +26,7 @@ class Orer_Task extends Filo_Task {
     private boolean kaydet = false;
     private boolean mobil_flag = false;
     private Map<String, Integer> sefer_ozet = new HashMap<>();
-    private String ui_main_notf, ui_notf, ui_led;
+    private String ui_main_notf, ui_notf, ui_led, hat;
     public Orer_Task( String oto, String cookie, String aktif_tarih ){
         this.oto = oto;
         this.cookie = cookie;
@@ -101,6 +101,7 @@ class Orer_Task extends Filo_Task {
 
             JSONArray sefer_data = new JSONArray();
             JSONObject sefer, sonraki_sefer = null;
+            boolean hat_alindi = false;
             for( int i = 1; i < rows_size; i++ ) {
                 row = rows.get(i);
                 cols = row.select("td");
@@ -118,6 +119,15 @@ class Orer_Task extends Filo_Task {
                     } else {
                         sefer.put("durak", "YOK");
                     }
+                    if( !hat_alindi ){
+                        hat = cols.get(1).text().trim();
+                        if( cols.get(1).text().trim().contains("!")  ) hat = cols.get(1).text().trim().substring(1, cols.get(1).text().trim().length() - 1 );
+                        if( cols.get(1).text().trim().contains("#") ) hat = cols.get(1).text().trim().substring(1, cols.get(1).text().trim().length() - 1 );
+                        if( cols.get(1).text().trim().contains("*") ) hat = cols.get(1).text().trim().substring(1, cols.get(1).text().trim().length() - 1);
+                        hat_alindi = true;
+                    }
+                    sefer.put("hat", hat);
+
                     sefer_data.put( sefer );
                     if (sefer_ozet.containsKey(durum)) {
                         sefer_ozet.replace(durum, sefer_ozet.get(durum), sefer_ozet.get(durum) + 1);
@@ -577,22 +587,25 @@ class Orer_Task extends Filo_Task {
             PreparedStatement pst_insert;
             if( res.next() ){
                 // varolan kaydı guncelle
-                pst_insert = con.prepareStatement("UPDATE " + GitasDBT.OTOBUS_AKTIF_DURUM + " SET durum = ?, main_notf = ?, notf = ?, tarih = ? WHERE oto = ? ");
+                pst_insert = con.prepareStatement("UPDATE " + GitasDBT.OTOBUS_AKTIF_DURUM + " SET durum = ?, main_notf = ?, notf = ?, tarih = ?, hat = ?, sefer_ozet = ? WHERE oto = ? ");
                 pst_insert.setString(1, ui_led);
                 pst_insert.setString(2, ui_main_notf);
                 pst_insert.setString(3, ui_notf);
                 pst_insert.setString(4, Common.get_current_datetime_db());
-                pst_insert.setString(5, oto);
+                pst_insert.setString(5, hat );
+                pst_insert.setString(6, String.valueOf(sefer_ozet.get("A"))+"|"+String.valueOf(sefer_ozet.get("T"))+"|"+String.valueOf(sefer_ozet.get("B"))+"|"+String.valueOf(sefer_ozet.get("Y"))+"|"+String.valueOf(sefer_ozet.get("I")));
+                pst_insert.setString(7, oto);
                 pst_insert.executeUpdate();
-
             } else {
                 // ilk defa kayit yapilacak, ekle
-                pst_insert = con.prepareStatement("INSERT INTO " + GitasDBT.OTOBUS_AKTIF_DURUM + "( oto, durum, main_notf, notf, tarih ) VALUES ( ?, ?, ?, ?, ?)" );
+                pst_insert = con.prepareStatement("INSERT INTO " + GitasDBT.OTOBUS_AKTIF_DURUM + "( oto, durum, main_notf, notf, tarih, hat, sefer_ozet ) VALUES ( ?, ?, ?, ?, ?, ?, ?)" );
                 pst_insert.setString(1, oto);
                 pst_insert.setString(2, ui_led);
                 pst_insert.setString(3, ui_main_notf);
                 pst_insert.setString(4, ui_notf);
                 pst_insert.setString(5, Common.get_current_datetime_db());
+                pst_insert.setString(6, hat);
+                pst_insert.setString(7, String.valueOf(sefer_ozet.get("A"))+"|"+String.valueOf(sefer_ozet.get("T"))+"|"+String.valueOf(sefer_ozet.get("B"))+"|"+String.valueOf(sefer_ozet.get("Y"))+"|"+String.valueOf(sefer_ozet.get("I")));
                 pst_insert.executeUpdate();
             }
             pst_insert.close();
