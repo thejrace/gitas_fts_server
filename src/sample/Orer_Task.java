@@ -537,7 +537,7 @@ class Orer_Task extends Filo_Task {
             pst.setString(1, oto);
             pst.setInt(2, alarm_data.get_type());
             pst.setInt(3, Integer.valueOf(alarm_data.get_sefer_no()));
-            pst.setString(4, Common.get_current_date() + " 05:00:00");
+            pst.setString(4, aktif_tarih + " 05:00:00");
             res = pst.executeQuery();
             if( !res.next() ){
                 pst_2 = con.prepareStatement("INSERT INTO " + GitasDBT.OTOBUS_ALARM_DATA + "( oto, alarm_tipi, alarm_mesaj, sefer_no, tarih ) VALUES ( ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS );
