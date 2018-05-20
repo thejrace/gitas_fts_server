@@ -143,32 +143,33 @@ public class Filo_Download implements Runnable {
                                 pst.setString(1, res.getString("kod") );
                                 pst.setString(2, Common.get_yesterday_date() );
                                 pst.executeUpdate();
+
+                                // pdks verilerini sil
+                                pst = con.prepareStatement("DELETE FROM " + GitasDBT.PDKS_KAYIT + " WHERE oto = ? && tarih <= ?");
+                                pst.setString(1, res.getString("kod"));
+                                pst.setString(2, Common.get_yesterday_date() );
+                                pst.executeUpdate();
+                                // mesaj verilerini sil
+                                pst = con.prepareStatement("DELETE FROM " + GitasDBT.FILO_MESAJLAR + " WHERE oto = ? && tarih <= ?");
+                                pst.setString(1, res.getString("kod"));
+                                pst.setString(2, Common.get_yesterday_date() );
+                                pst.executeUpdate();
+                                // giden mesaj verilerini sil
+                                pst = con.prepareStatement("DELETE FROM " + GitasDBT.FILO_MESAJLAR_GIDEN + " WHERE oto = ? && tarih <= ?");
+                                pst.setString(1, res.getString("kod"));
+                                pst.setString(2, Common.get_yesterday_date() );
+                                pst.executeUpdate();
+                                // iys kayitlarini sil
+                                pst = con.prepareStatement("DELETE FROM " + GitasDBT.IYS_KAYIT + " WHERE oto = ? && tarih <= ?");
+                                pst.setString(1, res.getString("kod"));
+                                pst.setString(2, Common.get_yesterday_date() );
+                                pst.executeUpdate();
+                                // hiz kayitlarini sil
+                                pst = con.prepareStatement("DELETE FROM " + GitasDBT.FILO_HIZ_KAYITLARI + " WHERE oto = ? && tarih <= ?");
+                                pst.setString(1, res.getString("kod"));
+                                pst.setString(2, Common.get_yesterday_date() + " 00:00:00");
+                                pst.executeUpdate();
                             }
-                            // pdks verilerini sil
-                            pst = con.prepareStatement("DELETE FROM " + GitasDBT.PDKS_KAYIT + " WHERE oto = ? && tarih <= ?");
-                            pst.setString(1, res.getString("kod"));
-                            pst.setString(2, Common.get_yesterday_date() );
-                            pst.executeUpdate();
-                            // mesaj verilerini sil
-                            pst = con.prepareStatement("DELETE FROM " + GitasDBT.FILO_MESAJLAR + " WHERE oto = ? && tarih <= ?");
-                            pst.setString(1, res.getString("kod"));
-                            pst.setString(2, Common.get_yesterday_date() );
-                            pst.executeUpdate();
-                            // giden mesaj verilerini sil
-                            pst = con.prepareStatement("DELETE FROM " + GitasDBT.FILO_MESAJLAR_GIDEN + " WHERE oto = ? && tarih <= ?");
-                            pst.setString(1, res.getString("kod"));
-                            pst.setString(2, Common.get_yesterday_date() );
-                            pst.executeUpdate();
-                            // iys kayitlarini sil
-                            pst = con.prepareStatement("DELETE FROM " + GitasDBT.IYS_KAYIT + " WHERE oto = ? && tarih <= ?");
-                            pst.setString(1, res.getString("kod"));
-                            pst.setString(2, Common.get_yesterday_date() );
-                            pst.executeUpdate();
-                            // hiz kayitlarini sil
-                            pst = con.prepareStatement("DELETE FROM " + GitasDBT.FILO_HIZ_KAYITLARI + " WHERE oto = ? && tarih <= ?");
-                            pst.setString(1, res.getString("kod"));
-                            pst.setString(2, Common.get_yesterday_date() + " 00:00:00");
-                            pst.executeUpdate();
                             // alarm verilerini sil
                             pst = con.prepareStatement("DELETE FROM " + GitasDBT.OTOBUS_ALARM_DATA + " WHERE oto = ? && tarih <= ?");
                             pst.setString(1, res.getString("kod"));

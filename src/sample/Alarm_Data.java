@@ -1,5 +1,6 @@
 package sample;
 
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -44,7 +45,7 @@ public class Alarm_Data {
             MESAJ_NOT_VAR = "Yeni not var!",
             MESAJ_NOT_TAMAMLANDI = "Not tamamlandı!",
             MESAJ_NOT_BILDIRIMI = "Yeni not bildirimi var!",
-            MESAJ_SURUCU_COK_CALISTI = "%%ISIM%% çalışma süre limitini aştı.";
+            MESAJ_SURUCU_COK_CALISTI = "%%ISIM%% çalışma süre limitini(%%SAAT%% saat) aştı.";
 
     public static int   KIRMIZI = 1,
             TURUNCU = 2,
@@ -65,6 +66,57 @@ public class Alarm_Data {
         DateFormat dateFormat = new SimpleDateFormat("HH:mm");
         Date date = new Date();
         this.tarih = dateFormat.format(date);
+    }
+
+    public static void db_insert( Alarm_Data alarm_data, String oto, String aktif_tarih ){
+        try {
+            Connection con = DBC.getInstance().getConnection();
+            PreparedStatement pst_2 = null;
+            ResultSet res;
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM " + GitasDBT.OTOBUS_ALARM_DATA + " WHERE oto = ? && alarm_tipi = ? && sefer_no = ? && tarih >= ? ");
+            pst.setString(1, oto);
+            pst.setInt(2, alarm_data.get_type());
+            pst.setInt(3, Integer.valueOf(alarm_data.get_sefer_no()));
+            pst.setString(4, aktif_tarih + " 05:00:00");
+            res = pst.executeQuery();
+            if( !res.next() ){
+                pst_2 = con.prepareStatement("INSERT INTO " + GitasDBT.OTOBUS_ALARM_DATA + "( oto, alarm_tipi, alarm_mesaj, sefer_no, tarih ) VALUES ( ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS );
+                pst_2.setString(1, oto);
+                pst_2.setInt(2, alarm_data.get_type());
+                pst_2.setString(3, alarm_data.get_mesaj());
+                pst_2.setInt(4, Integer.valueOf(alarm_data.get_sefer_no()) );
+                pst_2.setString(5, Common.get_current_datetime_db());
+                pst_2.executeUpdate();
+                ResultSet last_inserted_res = pst_2.getGeneratedKeys();
+                last_inserted_res.next();
+                PreparedStatement pst_4 = con.prepareStatement("SELECT eposta FROM " + GitasDBT.APP_KULLANICILAR + " WHERE durum = ?");
+                pst_4.setInt(1, 1);
+                ResultSet res_2 = pst_4.executeQuery();
+                PreparedStatement pst_3 = null;
+                // alarm gorenler performans icin ters calisiyor
+                // - yeni alarm eklendiginde, her kullanici icin "gormedi kaydı" olusturuyoruz
+                // - kullanici alarmlari indiririken alarmlar tablosunu degil, alarm_gorenler tablosunu tariyacak
+                // - yeni alarm varsa onu indirecek, o alarmin gorulmedi kaydi tablodan silinecek
+                while( res_2.next() ){
+                    pst_3 = con.prepareStatement("INSERT INTO " + GitasDBT.OTOBUS_ALARM_DATA_GORENLER + " ( kullanici, alarm_id, tarih ) VALUES ( ?, ?, ? )" );
+                    pst_3.setString(1, res_2.getString("eposta"));
+                    pst_3.setInt(2, last_inserted_res.getInt(1));
+                    pst_3.setString(3, Common.get_current_datetime_db());
+                    pst_3.executeUpdate();
+                }
+                pst_3.close();
+                res_2.close();
+                pst_4.close();
+                last_inserted_res.close();
+                res.close();
+                pst_2.close();
+            }
+            pst.close();
+            con.close();
+        } catch( SQLException e ){
+            e.printStackTrace();
+        }
+
     }
 
     public boolean aktif_mi( Alarm_Data farkli_data ){

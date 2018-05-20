@@ -185,7 +185,7 @@ class Orer_Task extends Filo_Task {
                             if (yarim_sonrasi_sefer.getString("durum").equals("B") || yarim_sonrasi_sefer.getString("durum").equals("T")) {
                                 duzeltilmis_sefer_index = k;
                                 sonraki_seferler_duzeltilmis = true;
-                                alarm_ekle(new Alarm_Data(Alarm_Data.SEFERLER_DUZELTILDI, Alarm_Data.YESIL, oto, Alarm_Data.MESAJ_SEFERLER_DUZELTILDI, "1"));
+                                Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.SEFERLER_DUZELTILDI, Alarm_Data.YESIL, oto, Alarm_Data.MESAJ_SEFERLER_DUZELTILDI, "1"), oto, aktif_tarih);
                                 break;
                             }
                             k++;
@@ -193,7 +193,7 @@ class Orer_Task extends Filo_Task {
                         // seferler duzeltilmemişse yarim kaldi diyoruz
                         // bu muhtemelen son sefer yarim kaldiginda olur cunku genelde yarim kalan sefer sonrasi iptal oluyor sonrakiler
                         if (!sonraki_seferler_duzeltilmis) {
-                            alarm_ekle(new Alarm_Data(Alarm_Data.SEFER_YARIM, Alarm_Data.KIRMIZI, oto, Alarm_Data.MESAJ_YARIM, sefer_no));
+                            Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.SEFER_YARIM, Alarm_Data.KIRMIZI, oto, Alarm_Data.MESAJ_YARIM, sefer_no), oto, aktif_tarih);
                             ui_led = Sefer_Data.DYARIM;
                             ui_main_notf = "Sefer Yarım Kaldı";
                             ui_notf = "Durum Kodu: " + sefer_durum_kodu;
@@ -212,7 +212,7 @@ class Orer_Task extends Filo_Task {
                         }
                     } else {
                         // son sefer yarım kalmis
-                        alarm_ekle(new Alarm_Data(Alarm_Data.SEFER_YARIM, Alarm_Data.KIRMIZI, oto, Alarm_Data.MESAJ_YARIM, sefer_no));
+                        Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.SEFER_YARIM, Alarm_Data.KIRMIZI, oto, Alarm_Data.MESAJ_YARIM, sefer_no), oto, aktif_tarih);
                         ui_led = Sefer_Data.DYARIM;
                         ui_main_notf = "Sefer Yarım Kaldı";
                         ui_notf = "Durum Kodu: " + sefer_durum_kodu;
@@ -238,14 +238,14 @@ class Orer_Task extends Filo_Task {
                         // seferler duzeltilmemişse durum iptal diyoruz
                         if (!sonraki_seferler_duzeltilmis) {
 
-                            alarm_ekle(new Alarm_Data(Alarm_Data.SEFER_IPTAL, Alarm_Data.KIRMIZI, oto, Alarm_Data.MESAJ_IPTAL, "1"));
+                            Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.SEFER_IPTAL, Alarm_Data.KIRMIZI, oto, Alarm_Data.MESAJ_IPTAL, "1"), oto, aktif_tarih);
                             ui_led = Sefer_Data.DIPTAL;
                             ui_main_notf = "Sefer İptal";
                             ui_notf = "Durum Kodu: " + sefer_durum_kodu;
                         } else {
                             // bekleyen sefer ( durum led icin )
-                            alarm_ekle(new Alarm_Data(Alarm_Data.SEFER_IPTAL, Alarm_Data.KIRMIZI, oto, Alarm_Data.MESAJ_IPTAL, "1"));
-                            alarm_ekle(new Alarm_Data(Alarm_Data.SEFERLER_DUZELTILDI, Alarm_Data.YESIL, oto, Alarm_Data.MESAJ_SEFERLER_DUZELTILDI, "1"));
+                            Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.SEFER_IPTAL, Alarm_Data.KIRMIZI, oto, Alarm_Data.MESAJ_IPTAL, "1"), oto, aktif_tarih);
+                            Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.SEFERLER_DUZELTILDI, Alarm_Data.YESIL, oto, Alarm_Data.MESAJ_SEFERLER_DUZELTILDI, "1"), oto, aktif_tarih);
                             JSONObject iptal_sonrasi_sefer = sefer_data.getJSONObject(duzeltilmis_sefer_index);
                             if (iptal_sonrasi_sefer.getString("durum").equals(Sefer_Data.DBEKLEYEN)) {
                                 ui_led = Sefer_Data.DBEKLEYEN;
@@ -261,7 +261,7 @@ class Orer_Task extends Filo_Task {
                     } else {
                         // son sefer iptal
                         ui_led = Sefer_Data.DIPTAL;
-                        alarm_ekle(new Alarm_Data(Alarm_Data.SEFER_IPTAL, Alarm_Data.KIRMIZI, oto, Alarm_Data.MESAJ_IPTAL, "1"));
+                        Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.SEFER_IPTAL, Alarm_Data.KIRMIZI, oto, Alarm_Data.MESAJ_IPTAL, "1"), oto, aktif_tarih);
                         ui_main_notf = "Sefer İptal";
                         ui_notf = "Durum Kodu: " + sefer_durum_kodu;
                     }
@@ -286,13 +286,13 @@ class Orer_Task extends Filo_Task {
                             // bir sonraki sefere amir saat atamis
                             if (Sefer_Sure.hesapla(sefer_tahmin, sonraki_sefer.getString("amir")) < 0) {
                                 // amir saat atamis ama gene de geç kalacak
-                                alarm_ekle(new Alarm_Data(Alarm_Data.GEC_KALMA, Alarm_Data.TURUNCU, oto, Alarm_Data.MESAJ_GEC_KALMA, sefer_no));
+                                Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.GEC_KALMA, Alarm_Data.TURUNCU, oto, Alarm_Data.MESAJ_GEC_KALMA, sefer_no), oto, aktif_tarih);
                             }
                         } else {
                             // amir saat atamamis
                             if (Sefer_Sure.hesapla(sefer_tahmin, sonraki_sefer.getString("orer")) < 0) {
                                 // amir saat atamis ama gene de geç kalacak
-                                alarm_ekle(new Alarm_Data(Alarm_Data.GEC_KALMA, Alarm_Data.TURUNCU, oto, Alarm_Data.MESAJ_GEC_KALMA, sefer_no));
+                                Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.GEC_KALMA, Alarm_Data.TURUNCU, oto, Alarm_Data.MESAJ_GEC_KALMA, sefer_no), oto, aktif_tarih);
                             }
                         }
                     }
@@ -307,7 +307,7 @@ class Orer_Task extends Filo_Task {
                             if (!sonraki_sefer.getString("amir").equals("") && !sonraki_sefer.getString("amir").equals("[ 10 5 2 ]")) {
                                 // eger amir saat atamişsa
                                 ui_notf = "Bir sonraki sefer: " + sonraki_sefer.getString("amir") + " ( Amir )";
-                                alarm_ekle(new Alarm_Data(Alarm_Data.AMIR_SAAT_ATADI, Alarm_Data.MAVI, oto, Alarm_Data.MESAJ_AMIR_SAAT_ATADI, sefer_no));
+                                Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.AMIR_SAAT_ATADI, Alarm_Data.MAVI, oto, Alarm_Data.MESAJ_AMIR_SAAT_ATADI, sefer_no), oto, aktif_tarih);
                             } else {
                                 // amirsiz bir sonraki sefer
                                 ui_notf = "Bir sonraki sefer " + sonraki_sefer.getString("orer");
@@ -326,11 +326,11 @@ class Orer_Task extends Filo_Task {
                 if (sefer_durum.equals(Sefer_Data.DBEKLEYEN)) {
                     if (!sefer_amir.equals("") && !sefer_amir.equals("[ 10 5 2 ]")) {
                         if (Sefer_Sure.gecmis(SIMDI, sefer_amir)) {
-                            alarm_ekle(new Alarm_Data(Alarm_Data.SEFER_BASLAMADI, Alarm_Data.TURUNCU, oto, Alarm_Data.MESAJ_SEFER_BASLAMADI, sefer_no));
+                            Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.SEFER_BASLAMADI, Alarm_Data.TURUNCU, oto, Alarm_Data.MESAJ_SEFER_BASLAMADI, sefer_no), oto, aktif_tarih );
                         }
                     } else {
                         if (Sefer_Sure.gecmis(SIMDI, sefer_orer)) {
-                            alarm_ekle(new Alarm_Data(Alarm_Data.SEFER_BASLAMADI, Alarm_Data.TURUNCU, oto, Alarm_Data.MESAJ_SEFER_BASLAMADI, sefer_no));
+                            Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.SEFER_BASLAMADI, Alarm_Data.TURUNCU, oto, Alarm_Data.MESAJ_SEFER_BASLAMADI, sefer_no), oto, aktif_tarih);
                         }
                     }
                 }
@@ -346,6 +346,8 @@ class Orer_Task extends Filo_Task {
 
 
     }
+
+
 
     public void sefer_veri_ayikla( Document document ){
         try {
@@ -528,55 +530,7 @@ class Orer_Task extends Filo_Task {
     }
 
 
-    private void alarm_ekle( Alarm_Data alarm_data ){
-        try {
-            Connection con = DBC.getInstance().getConnection();
-            PreparedStatement pst_2 = null;
-            ResultSet res;
-            PreparedStatement pst = con.prepareStatement("SELECT * FROM " + GitasDBT.OTOBUS_ALARM_DATA + " WHERE oto = ? && alarm_tipi = ? && sefer_no = ? && tarih >= ? ");
-            pst.setString(1, oto);
-            pst.setInt(2, alarm_data.get_type());
-            pst.setInt(3, Integer.valueOf(alarm_data.get_sefer_no()));
-            pst.setString(4, aktif_tarih + " 05:00:00");
-            res = pst.executeQuery();
-            if( !res.next() ){
-                pst_2 = con.prepareStatement("INSERT INTO " + GitasDBT.OTOBUS_ALARM_DATA + "( oto, alarm_tipi, alarm_mesaj, sefer_no, tarih ) VALUES ( ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS );
-                pst_2.setString(1, oto);
-                pst_2.setInt(2, alarm_data.get_type());
-                pst_2.setString(3, alarm_data.get_mesaj());
-                pst_2.setInt(4, Integer.valueOf(alarm_data.get_sefer_no()) );
-                pst_2.setString(5, Common.get_current_datetime_db());
-                pst_2.executeUpdate();
-                ResultSet last_inserted_res = pst_2.getGeneratedKeys();
-                last_inserted_res.next();
-                PreparedStatement pst_4 = con.prepareStatement("SELECT eposta FROM " + GitasDBT.APP_KULLANICILAR + " WHERE durum = ?");
-                pst_4.setInt(1, 1);
-                ResultSet res_2 = pst_4.executeQuery();
-                PreparedStatement pst_3 = null;
-                // alarm gorenler performans icin ters calisiyor
-                // - yeni alarm eklendiginde, her kullanici icin "gormedi kaydı" olusturuyoruz
-                // - kullanici alarmlari indiririken alarmlar tablosunu degil, alarm_gorenler tablosunu tariyacak
-                // - yeni alarm varsa onu indirecek, o alarmin gorulmedi kaydi tablodan silinecek
-                while( res_2.next() ){
-                    pst_3 = con.prepareStatement("INSERT INTO " + GitasDBT.OTOBUS_ALARM_DATA_GORENLER + " ( kullanici, alarm_id, tarih ) VALUES ( ?, ?, ? )" );
-                    pst_3.setString(1, res_2.getString("eposta"));
-                    pst_3.setInt(2, last_inserted_res.getInt(1));
-                    pst_3.setString(3, Common.get_current_datetime_db());
-                    pst_3.executeUpdate();
-                }
-                pst_3.close();
-                res_2.close();
-                pst_4.close();
-                last_inserted_res.close();
-                res.close();
-                pst_2.close();
-            }
-            pst.close();
-            con.close();
-        } catch( SQLException e ){
-            e.printStackTrace();
-        }
-    }
+
 
     private void durum_guncelle(){
         try {

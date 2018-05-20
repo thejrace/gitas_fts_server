@@ -93,4 +93,7 @@ public class Surucu_Data {
     public String kisalt(){
         return "";
     }
+
+
+
 }
