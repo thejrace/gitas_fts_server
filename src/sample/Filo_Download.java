@@ -143,7 +143,6 @@ public class Filo_Download implements Runnable {
                                 pst.setString(1, res.getString("kod") );
                                 pst.setString(2, Common.get_yesterday_date() );
                                 pst.executeUpdate();
-
                                 // pdks verilerini sil
                                 pst = con.prepareStatement("DELETE FROM " + GitasDBT.PDKS_KAYIT + " WHERE oto = ? && tarih <= ?");
                                 pst.setString(1, res.getString("kod"));
@@ -174,6 +173,10 @@ public class Filo_Download implements Runnable {
                             pst = con.prepareStatement("DELETE FROM " + GitasDBT.OTOBUS_ALARM_DATA + " WHERE oto = ? && tarih <= ?");
                             pst.setString(1, res.getString("kod"));
                             pst.setString(2, Common.get_yesterday_date() + " 00:00:00");
+                            pst.executeUpdate();
+                            // alarm gorulme verilerini sil
+                            pst = con.prepareStatement("DELETE FROM " + GitasDBT.OTOBUS_ALARM_DATA_GORENLER + " WHERE tarih <= ?");
+                            pst.setString(1, Common.get_yesterday_date() + " 00:00:00");
                             pst.executeUpdate();
                         }
                         pst = con.prepareStatement( "UPDATE " + GitasDBT.SUNUCU_APP_CONFIG + " SET eski_veri_silme_timestamp = ? WHERE id = ?");

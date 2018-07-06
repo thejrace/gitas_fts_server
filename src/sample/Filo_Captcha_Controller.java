@@ -18,6 +18,7 @@ import java.net.URL;
 import java.util.*;
 
 
+
 public class Filo_Captcha_Controller implements Initializable {
 
     private WebView wv_1;
@@ -37,12 +38,13 @@ public class Filo_Captcha_Controller implements Initializable {
 
     private void web_view_init( final String login, final String password ){
         try {
-            url = new URL("http://filo5.iett.gov.tr/login.php?sayfa=");
+            //url = new URL("http://filo5.iett.gov.tr/login.php?sayfa=");
+            url = new URL("https://filotakip.iett.gov.tr/login.php");
         } catch( MalformedURLException e ){
             e.printStackTrace();
         }
         wv_1 = new WebView();
-        wv_1.setPrefWidth(300);
+        wv_1.setPrefWidth(600);
         URI uri = null;
         try {
             uri = new URI(url.getProtocol(), url.getHost(), url.getPath(), url.getQuery(), null);
@@ -59,7 +61,7 @@ public class Filo_Captcha_Controller implements Initializable {
 
         WebEngine we = wv_1.getEngine();
         try {
-            URL url = new URL("http://filo5.iett.gov.tr/login.php?sayfa=");
+            URL url = new URL("https://filotakip.iett.gov.tr/login.php");
             we.setJavaScriptEnabled(true);
             we.getLoadWorker().stateProperty().addListener(
                     (ObservableValue<? extends Worker.State> observable,
@@ -68,8 +70,8 @@ public class Filo_Captcha_Controller implements Initializable {
                         if (newValue != Worker.State.SUCCEEDED) {
                             return;
                         }
-                            we.executeScript(" " +
-                                    " function hide( elem ){ elem.style.display = \"none\"; } "+
+                            /*we.executeScript(" " +
+                                    " function hide( elem ){ if( elem != undefined ) elem.style.display = \"none\"; } "+
                                     " document.body.style.backgroundColor = \"#302e2e\"; document.body.style.overflowY = \"hidden\";" +
                                     " document.body.style.color = \"#272727\"; document.body.style.fontSize = \"0px\";" +
                                     " var link = document.getElementsByTagName(\"a\"); link[0].style.color= \"#d1d1d1\"; link[0].style.marginLeft = \"-50px\"; link[0].style.fontFamily = \"Tahoma\"; link[0].innerHTML = \"Kodu Değiştir\";" +
@@ -84,30 +86,54 @@ public class Filo_Captcha_Controller implements Initializable {
                                     " var form_pass = document.querySelectorAll('[name=\"password\"]');" +
                                     " if( form_login[0] != undefined ) hide(form_login[0]); form_login[0].value=\""+login+"\"; if( form_pass[0] != undefined ) hide(form_pass[0]); form_pass[0].value=\""+password+"\";  " +
                                     " var divo = document.createElement(\"div\"); divo.id = \"hederoy\"; document.body.appendChild(divo); document.getElementById(\"hederoy\").innerHTML = document.cookie;" +
-                                    " var cimg = document.getElementsByTagName(\"img\");  " );
-                            if( wv_inited ){
-                                try {
-                                    // eger <font>Yanlış kod girildi</font> yoksa bilerek exception attiriyoruz, takip scene e geciyoruz
-                                    we.executeScript( " var fs = document.getElementsByTagName(\"font\");" +
-                                            " fs[0].style.opacity = 0.3; ");
-                                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                                    alert.setTitle("Gitaş Filo Takip Sistemi");
-                                    alert.setHeaderText("Hata!");
-                                    alert.setContentText("Güvenlik kodu yanlış. Tekrar deneyin.");
-                                    alert.showAndWait();
-                                } catch( netscape.javascript.JSException e ) {
-                                    listener.on_refresh();
+                                    " var cimg = document.getElementsByTagName(\"img\");  " );*/
+
+
+                        try {
+                            we.executeScript(" "+
+                                    " function hide( elem ){ if( elem != undefined ) elem.style.display = \"none\"; } "+
+                                    " var link = document.getElementsByTagName(\"a\"); link[1].style.display = \"block\"; link[1].style.position = \"relative\"; link[1].style.color= \"#fff\"; link[1].style.left = \"260px\"; link[1].style.top = \"-70px\"; link[1].style.fontFamily = \"Tahoma\"; link[1].innerHTML = \"Kodu Değiştir\";" +
+                                    " link[1].style.textDecoration = \"none\"; link[1].style.fontSize = \"11\";  link[1].style.fontWeight = \"bold\";  "+
+                                    " document.body.style.backgroundColor = \"#302e2e\"; document.body.style.overflowY = \"hidden\";" +
+                                    " var loginBody = document.querySelectorAll(\".login-box-body\"); loginBody[0].style.paddingTop = \"0px\"; loginBody[0].style.backgroundColor = \"#302e2e\"; " +
+                                    " var logo = document.querySelectorAll(\".login-logo\"); hide(logo[0]); var infoText = document.querySelectorAll(\".login-box-msg\"); hide(infoText[0]); " +
+                                    " var form_login = document.querySelectorAll('[name=\"login\"]');" +
+                                    " var form_pass = document.querySelectorAll('[name=\"password\"]');" +
+                                    " if( form_login[0] != undefined ) hide(form_login[0]); form_login[0].value=\""+login+"\"; if( form_pass[0] != undefined ) hide(form_pass[0]); form_pass[0].value=\""+password+"\"; "+
+                                    " var cin = document.querySelectorAll('[name=\"captcha\"]'); cin[0].style.width = \"60px\"; cin[0].style.height = \"20px\"; cin[0].style.position = \"relative\"; cin[0].style.top = \"0px\"; cin[0].style.left = \"260px\";" +
+                                    " var cimg = document.getElementById(\"captcha\"); cimg.style.position = \"relative\"; cimg.style.left = \"50px\"; cimg.style.top = \"-20px\";  " +
+                                    " var submitbtn = document.querySelectorAll('[type=\"submit\"]'); submitbtn[0].style.width = \"40px\"; submitbtn[0].style.marginTop = \"-60px\"; submitbtn[0].style.marginLeft = \"260px\";" +
+                                    " submitbtn[0].style.backgroundColor = \"#7b3275\"; submitbtn[0].style.color = \"#d1d1d1\"; submitbtn[0].style.fontWeight = \"bold\";  submitbtn[0].style.border = \"none\"; " +
+                                    " submitbtn[0].style.padding = \"6px 10px 6px 10px\"; submitbtn[0].style.borderRadius = \"3px\"; submitbtn[0].style.fontSize = \"11px\"; submitbtn[0].style.cursor = \"pointer\"; "
+
+                            );
+                        } catch ( netscape.javascript.JSException e  ){
+                            //listener.on_refresh();
+                        }
+
+                        if( wv_inited ){
+                            try {
+                                // eger <font>Yanlış kod girildi</font> yoksa bilerek exception attiriyoruz, takip scene e geciyoruz
+                                we.executeScript( " var fs = document.getElementsByTagName(\"font\");" +
+                                        " fs[0].style.opacity = 0.3; ");
+                                Alert alert = new Alert(Alert.AlertType.ERROR);
+                                alert.setTitle("Gitaş Filo Takip Sistemi");
+                                alert.setHeaderText("Hata!");
+                                alert.setContentText("Güvenlik kodu yanlış. Tekrar deneyin.");
+                                alert.showAndWait();
+                            } catch( netscape.javascript.JSException e ) {
+                                listener.on_refresh();
+                            }
+                        }
+                        if( !wv_inited ){
+                            Platform.runLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    wv_container.getChildren().add(0, wv_1);
+                                    wv_inited = true;
                                 }
-                            }
-                            if( !wv_inited ){
-                                Platform.runLater(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        wv_container.getChildren().add(0, wv_1);
-                                        wv_inited = true;
-                                    }
-                                });
-                            }
+                            });
+                        }
                     });
             we.load(url.toString());
         } catch( MalformedURLException e ){
@@ -137,7 +163,7 @@ public class Filo_Captcha_Controller implements Initializable {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            web_view_init( "dk_oasfilo", "oas-1040");
+                            web_view_init( "dk_oasfilo", "oas-2023");
                         }
                     });
                 } catch( IOException e ){

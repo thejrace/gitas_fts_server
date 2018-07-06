@@ -19,10 +19,14 @@ class Mesaj_Task extends Filo_Task {
     public void yap(){
         if( aktif_tarih.equals("BEKLEMEDE") ) return;
         System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "[ "+ oto + " MESAJ DOWNLOAD ]");
-        veri_ayikla( parse_html( istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konum=ana&konu=mesaj&oto=") ), false );
+        //veri_ayikla( parse_html( istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konum=ana&konu=mesaj&oto=") ), false );
+        veri_ayikla( parse_html( istek_yap("https://filotakip.iett.gov.tr/_FYS/000/sorgu.php?konu=mesaj&mtip=giden&oto=") ), false );
+
 
         //System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "[ "+ oto + " GİDEN MESAJ DOWNLOAD ]");
-        veri_ayikla( parse_html( istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konu=mesaj&mtip=gelen&oto=") ), true );
+        //veri_ayikla( parse_html( istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konu=mesaj&mtip=gelen&oto=") ), true );
+        veri_ayikla( parse_html( istek_yap("https://filotakip.iett.gov.tr/_FYS/000/sorgu.php?konu=mesaj&mtip=gelen&oto=") ), true );
+
     }
 
     private void veri_ayikla(Document document, boolean giden ){

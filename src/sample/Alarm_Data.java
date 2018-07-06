@@ -116,7 +116,6 @@ public class Alarm_Data {
         } catch( SQLException e ){
             e.printStackTrace();
         }
-
     }
 
     public boolean aktif_mi( Alarm_Data farkli_data ){

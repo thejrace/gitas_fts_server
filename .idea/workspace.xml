@@ -8,8 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/gitas_fts_server_jar/gitas_fts_server.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/gitas_fts_server_jar/gitas_fts_server.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Alarm_Data.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Alarm_Data.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/gitas_fts_server_jar/gitas_fts_server.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$4.class" afterDir="false" />
@@ -19,11 +18,13 @@
       <change beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Filo_Download.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Orer_Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitas_fts_server/sample/Orer_Task.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Alarm_Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Alarm_Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Filo_Captcha_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Filo_Captcha_Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Filo_Download.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Filo_Download.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Hiz_Download_Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Hiz_Download_Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Mesaj_Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Mesaj_Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Orer_Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Orer_Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Surucu_Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Surucu_Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/PDKS_Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/PDKS_Task.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,10 +90,17 @@
       <file leaf-file-name="Filo_Download.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1615">
-              <caret line="171" column="29" selection-start-line="171" selection-start-column="29" selection-end-line="171" selection-end-column="29" />
+            <state relative-caret-position="1683">
+              <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="class#5356:10536" />
+                <element signature="class#10681:13389" />
+                <element signature="class#13530:16236" />
+                <element signature="class#16376:18582" />
+                <element signature="class#18722:21252" />
+                <element signature="class#21394:24093" />
+                <element signature="class#24246:26895" />
                 <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
               </folding>
             </state>
@@ -102,21 +110,75 @@
       <file leaf-file-name="Orer_Task.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Orer_Task.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="337" column="29" selection-start-line="337" selection-start-column="29" selection-end-line="337" selection-end-column="29" />
+            <state relative-caret-position="561">
+              <caret line="50" column="147" selection-start-line="50" selection-start-column="147" selection-end-line="50" selection-end-column="147" />
               <folding>
-                <element signature="method#sefer_veri_ayikla#0;class#Orer_Task#0" />
+                <element signature="method#sefer_veri_ayikla_mobil_v1#0;class#Orer_Task#0" />
+                <element signature="method#sefer_veri_ayikla_mobil_v1#1;class#Orer_Task#0" />
                 <element signature="method#durum_guncelle#0;class#Orer_Task#0" />
+                <element signature="e#49929#49930#0" expanded="true" />
+                <element signature="e#49960#49961#0" expanded="true" />
+                <element signature="e#50004#50005#0" expanded="true" />
+                <element signature="e#50045#50046#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Alarm_Data.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Mesaj_Task.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Mesaj_Task.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="22" column="133" lean-forward="true" selection-start-line="22" selection-start-column="133" selection-end-line="22" selection-end-column="133" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PDKS_Task.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/PDKS_Task.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="24" column="99" lean-forward="true" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IYS_Task.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/IYS_Task.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="31" column="152" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="152" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hiz_Download_Task.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/Hiz_Download_Task.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Filo_Captcha_Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Filo_Captcha_Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="867">
+              <caret line="165" column="66" selection-start-line="165" selection-start-column="66" selection-end-line="165" selection-end-column="66" />
+              <folding>
+                <element signature="e#10620#10621#0" expanded="true" />
+                <element signature="e#10706#10707#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Alarm_Data.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Alarm_Data.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="80" column="37" lean-forward="true" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+            <state relative-caret-position="1530">
+              <caret line="93" column="55" selection-start-line="93" selection-start-column="55" selection-end-line="93" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -124,8 +186,8 @@
       <file leaf-file-name="Surucu_Calisma_Saati_Task.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Surucu_Calisma_Saati_Task.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+            <state relative-caret-position="187">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,15 +200,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
               <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBC.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/DBC.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -209,10 +262,6 @@
         <option value="$PROJECT_DIR$/src/sample/Otobus_Rotasyon.java" />
         <option value="$PROJECT_DIR$/src/sample/Test.java" />
         <option value="$PROJECT_DIR$/src/sample/Otobus.java" />
-        <option value="$PROJECT_DIR$/src/sample/Filo_Captcha_Controller.java" />
-        <option value="$PROJECT_DIR$/src/sample/PDKS_Task.java" />
-        <option value="$PROJECT_DIR$/src/sample/Hiz_Download_Task.java" />
-        <option value="$PROJECT_DIR$/src/sample/Mesaj_Task.java" />
         <option value="$PROJECT_DIR$/src/sample/Filo_Captcha_Scene.java" />
         <option value="$PROJECT_DIR$/src/sample/Orer_Mobil_Download.java" />
         <option value="$PROJECT_DIR$/src/sample/GitasDBT.java" />
@@ -220,10 +269,14 @@
         <option value="$PROJECT_DIR$/src/sample/Surucu.java" />
         <option value="$PROJECT_DIR$/src/sample/Surucu_Data.java" />
         <option value="$PROJECT_DIR$/src/sample/Web_Request.java" />
+        <option value="$PROJECT_DIR$/src/sample/Surucu_Calisma_Saati_Task.java" />
         <option value="$PROJECT_DIR$/src/sample/Filo_Download.java" />
         <option value="$PROJECT_DIR$/src/sample/Alarm_Data.java" />
+        <option value="$PROJECT_DIR$/src/sample/Filo_Captcha_Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/Orer_Task.java" />
-        <option value="$PROJECT_DIR$/src/sample/Surucu_Calisma_Saati_Task.java" />
+        <option value="$PROJECT_DIR$/src/sample/Mesaj_Task.java" />
+        <option value="$PROJECT_DIR$/src/sample/PDKS_Task.java" />
+        <option value="$PROJECT_DIR$/src/sample/Hiz_Download_Task.java" />
       </list>
     </option>
   </component>
@@ -237,7 +290,7 @@
     <packageJsonPaths />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="286" />
     <option name="y" value="77" />
     <option name="width" value="1924" />
@@ -271,8 +324,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -289,12 +340,20 @@
               <item name="gitas_fts_server" type="b2602c69:ProjectViewProjectNode" />
               <item name="gitas_fts_server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gitas_fts_server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gitas_fts_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -621,39 +680,46 @@
       <workItem from="1526212181104" duration="727000" />
       <workItem from="1526220001067" duration="822000" />
       <workItem from="1526729582491" duration="36000" />
-      <workItem from="1526819276230" duration="1961000" />
+      <workItem from="1526819276230" duration="2303000" />
+      <workItem from="1526827194835" duration="8000" />
+      <workItem from="1527851505366" duration="700000" />
+      <workItem from="1528056038938" duration="3936000" />
+      <workItem from="1528118676372" duration="3035000" />
+      <workItem from="1528369264041" duration="154000" />
+      <workItem from="1530878451595" duration="4269000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128084000" />
+    <option name="totallyTimeSpent" value="140528000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="10" />
       <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32790446" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32899022" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Run" order="0" weight="0.3278867" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32899022" />
       <window_info id="Capture Tool" order="0" />
       <window_info id="Designer" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.6703755" visible="true" weight="0.16950959" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.6703755" visible="true" weight="0.17910448" />
       <window_info anchor="right" id="Database" order="9" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="5" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39869282" />
+      <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="right" id="JetGradle" order="8" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32790446" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="4" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32897604" />
@@ -687,79 +753,73 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/sample/DBC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Captcha_Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Mesaj_Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="425">
+          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2064">
-          <caret line="297" column="21" selection-start-line="297" selection-start-column="21" selection-end-line="297" selection-end-column="21" />
+        <state relative-caret-position="1428">
+          <caret line="602" selection-start-line="602" selection-end-line="602" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="class#5356:10536" />
+            <element signature="class#10681:13389" />
+            <element signature="class#13530:16236" />
+            <element signature="class#16376:18582" />
+            <element signature="class#18722:21252" />
+            <element signature="class#21394:24093" />
+            <element signature="class#24246:26895" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Otobus.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Orer_Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Hiz_Download_Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Captcha_Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Mesaj_Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2064">
-          <caret line="297" column="21" selection-start-line="297" selection-start-column="21" selection-end-line="297" selection-end-column="21" />
+        <state relative-caret-position="5644">
+          <caret line="332" column="178" selection-start-line="332" selection-start-column="167" selection-end-line="332" selection-end-column="178" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
+            <element signature="method#sefer_veri_ayikla_mobil_v1#0;class#Orer_Task#0" />
+            <element signature="method#sefer_veri_ayikla_mobil_v1#1;class#Orer_Task#0" />
+            <element signature="method#durum_guncelle#0;class#Orer_Task#0" />
+            <element signature="e#49929#49930#0" expanded="true" />
+            <element signature="e#49960#49961#0" expanded="true" />
+            <element signature="e#50004#50005#0" expanded="true" />
+            <element signature="e#50045#50046#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Otobus.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Surucu_Calisma_Saati_Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Web_Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/DBC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Alarm_Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="93" column="55" lean-forward="true" selection-start-line="93" selection-start-column="55" selection-end-line="93" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -790,6 +850,13 @@
           <caret line="297" column="21" selection-start-line="297" selection-start-column="21" selection-end-line="297" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="class#5356:10536" />
+            <element signature="class#10681:13389" />
+            <element signature="class#13530:16236" />
+            <element signature="class#16376:18582" />
+            <element signature="class#18722:21252" />
+            <element signature="class#21394:24093" />
+            <element signature="class#24246:26895" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
@@ -829,6 +896,13 @@
           <caret line="297" column="21" selection-start-line="297" selection-start-column="21" selection-end-line="297" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="class#5356:10536" />
+            <element signature="class#10681:13389" />
+            <element signature="class#13530:16236" />
+            <element signature="class#16376:18582" />
+            <element signature="class#18722:21252" />
+            <element signature="class#21394:24093" />
+            <element signature="class#24246:26895" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
@@ -868,6 +942,13 @@
           <caret line="404" selection-start-line="404" selection-end-line="404" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="class#5356:10536" />
+            <element signature="class#10681:13389" />
+            <element signature="class#13530:16236" />
+            <element signature="class#16376:18582" />
+            <element signature="class#18722:21252" />
+            <element signature="class#21394:24093" />
+            <element signature="class#24246:26895" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
@@ -893,6 +974,13 @@
           <caret line="404" lean-forward="true" selection-start-line="404" selection-end-line="404" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="class#5356:10536" />
+            <element signature="class#10681:13389" />
+            <element signature="class#13530:16236" />
+            <element signature="class#16376:18582" />
+            <element signature="class#18722:21252" />
+            <element signature="class#21394:24093" />
+            <element signature="class#24246:26895" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
           </folding>
         </state>
@@ -926,31 +1014,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/PDKS_Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="119" column="13" lean-forward="true" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Mesaj_Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Login_Task.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Hiz_Download_Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="32" column="92" selection-start-line="32" selection-start-column="92" selection-end-line="32" selection-end-column="92" />
         </state>
       </provider>
     </entry>
@@ -959,13 +1026,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Captcha_Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-96">
-          <caret line="99" column="33" selection-start-line="99" selection-start-column="33" selection-end-line="99" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -987,13 +1047,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="92" column="21" lean-forward="true" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/GitasDBT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="28" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -1032,42 +1085,112 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Surucu_Calisma_Saati_Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1615">
-          <caret line="171" column="29" selection-start-line="171" selection-start-column="29" selection-end-line="171" selection-end-column="29" />
+        <state relative-caret-position="187">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/GitasDBT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="38" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4998" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Alarm_Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="93" column="55" selection-start-line="93" selection-start-column="55" selection-end-line="93" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Senkronizasyon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-221">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Download.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#5356:10536" />
+            <element signature="class#10681:13389" />
+            <element signature="class#13530:16236" />
+            <element signature="class#16376:18582" />
+            <element signature="class#18722:21252" />
+            <element signature="class#21394:24093" />
+            <element signature="class#24246:26895" />
             <element signature="method#init_oto_orer_download#0;class#Filo_Download#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Filo_Captcha_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="165" column="66" selection-start-line="165" selection-start-column="66" selection-end-line="165" selection-end-column="66" />
+          <folding>
+            <element signature="e#10620#10621#0" expanded="true" />
+            <element signature="e#10706#10707#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Orer_Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="337" column="29" selection-start-line="337" selection-start-column="29" selection-end-line="337" selection-end-column="29" />
+        <state relative-caret-position="561">
+          <caret line="50" column="147" selection-start-line="50" selection-start-column="147" selection-end-line="50" selection-end-column="147" />
           <folding>
-            <element signature="method#sefer_veri_ayikla#0;class#Orer_Task#0" />
+            <element signature="method#sefer_veri_ayikla_mobil_v1#0;class#Orer_Task#0" />
+            <element signature="method#sefer_veri_ayikla_mobil_v1#1;class#Orer_Task#0" />
             <element signature="method#durum_guncelle#0;class#Orer_Task#0" />
+            <element signature="e#49929#49930#0" expanded="true" />
+            <element signature="e#49960#49961#0" expanded="true" />
+            <element signature="e#50004#50005#0" expanded="true" />
+            <element signature="e#50045#50046#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Surucu_Calisma_Saati_Task.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Mesaj_Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="264">
+          <caret line="22" column="133" lean-forward="true" selection-start-line="22" selection-start-column="133" selection-end-line="22" selection-end-column="133" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Alarm_Data.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/PDKS_Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="80" column="37" lean-forward="true" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+        <state relative-caret-position="340">
+          <caret line="24" column="99" lean-forward="true" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/IYS_Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="31" column="152" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="152" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Hiz_Download_Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
         </state>
       </provider>
     </entry>
