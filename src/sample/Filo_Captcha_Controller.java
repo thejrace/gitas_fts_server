@@ -1,15 +1,26 @@
 package sample;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.HBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.util.Duration;
 import org.jsoup.Jsoup;
+
+import javax.imageio.ImageIO;
+import javafx.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -27,6 +38,10 @@ public class Filo_Captcha_Controller implements Initializable {
     private Refresh_Listener listener;
     private URL url;
     private boolean wv_inited = false;
+
+    private File captureFile = new File("cap.png");
+
+
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         random_sessid_al();
@@ -38,13 +53,14 @@ public class Filo_Captcha_Controller implements Initializable {
 
     private void web_view_init( final String login, final String password ){
         try {
-            //url = new URL("http://filo5.iett.gov.tr/login.php?sayfa=");
-            url = new URL("https://filotakip.iett.gov.tr/login.php");
+            url = new URL("http://filo5.iett.gov.tr/login.php?sayfa=");
+            //url = new URL("https://filotakip.iett.gov.tr/login.php");
         } catch( MalformedURLException e ){
             e.printStackTrace();
         }
         wv_1 = new WebView();
         wv_1.setPrefWidth(600);
+        wv_1.setPrefHeight(300);
         URI uri = null;
         try {
             uri = new URI(url.getProtocol(), url.getHost(), url.getPath(), url.getQuery(), null);
@@ -59,9 +75,25 @@ public class Filo_Captcha_Controller implements Initializable {
             e.printStackTrace();
         }
 
+        final PauseTransition pt = new PauseTransition();
+        pt.setDuration(Duration.millis(500));
+        pt.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                WritableImage image = wv_1.snapshot(null, null);
+                BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
+                try {
+                    ImageIO.write(bufferedImage, "png", captureFile);
+                    System.out.println("Captured WebView to: " + captureFile.getAbsoluteFile());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         WebEngine we = wv_1.getEngine();
         try {
-            URL url = new URL("https://filotakip.iett.gov.tr/login.php");
+            URL url = new URL("http://filo5.iett.gov.tr/login.php?sayfa=");
             we.setJavaScriptEnabled(true);
             we.getLoadWorker().stateProperty().addListener(
                     (ObservableValue<? extends Worker.State> observable,
@@ -70,7 +102,7 @@ public class Filo_Captcha_Controller implements Initializable {
                         if (newValue != Worker.State.SUCCEEDED) {
                             return;
                         }
-                            /*we.executeScript(" " +
+                            we.executeScript(" " +
                                     " function hide( elem ){ if( elem != undefined ) elem.style.display = \"none\"; } "+
                                     " document.body.style.backgroundColor = \"#302e2e\"; document.body.style.overflowY = \"hidden\";" +
                                     " document.body.style.color = \"#272727\"; document.body.style.fontSize = \"0px\";" +
@@ -86,10 +118,12 @@ public class Filo_Captcha_Controller implements Initializable {
                                     " var form_pass = document.querySelectorAll('[name=\"password\"]');" +
                                     " if( form_login[0] != undefined ) hide(form_login[0]); form_login[0].value=\""+login+"\"; if( form_pass[0] != undefined ) hide(form_pass[0]); form_pass[0].value=\""+password+"\";  " +
                                     " var divo = document.createElement(\"div\"); divo.id = \"hederoy\"; document.body.appendChild(divo); document.getElementById(\"hederoy\").innerHTML = document.cookie;" +
-                                    " var cimg = document.getElementsByTagName(\"img\");  " );*/
+                                    " var cimg = document.getElementsByTagName(\"img\"); " +
+                                    " //hide(submitbtn[0]); //hide(cin[0]); //hide(link[0]); " );
 
+                            //pt.play();
 
-                        try {
+                        /*try {
                             we.executeScript(" "+
                                     " function hide( elem ){ if( elem != undefined ) elem.style.display = \"none\"; } "+
                                     " var link = document.getElementsByTagName(\"a\"); link[1].style.display = \"block\"; link[1].style.position = \"relative\"; link[1].style.color= \"#fff\"; link[1].style.left = \"260px\"; link[1].style.top = \"-70px\"; link[1].style.fontFamily = \"Tahoma\"; link[1].innerHTML = \"Kodu Değiştir\";" +
@@ -109,7 +143,7 @@ public class Filo_Captcha_Controller implements Initializable {
                             );
                         } catch ( netscape.javascript.JSException e  ){
                             //listener.on_refresh();
-                        }
+                        }*/
 
                         if( wv_inited ){
                             try {
