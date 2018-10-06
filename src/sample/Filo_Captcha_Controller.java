@@ -53,8 +53,8 @@ public class Filo_Captcha_Controller implements Initializable {
 
     private void web_view_init( final String login, final String password ){
         try {
-            url = new URL("http://filo5.iett.gov.tr/login.php?sayfa=");
-            //url = new URL("https://filotakip.iett.gov.tr/login.php");
+            //url = new URL("http://filo5.iett.gov.tr/login.php?sayfa=");
+            url = new URL("https://filotakip.iett.gov.tr/login.php");
         } catch( MalformedURLException e ){
             e.printStackTrace();
         }
@@ -93,7 +93,8 @@ public class Filo_Captcha_Controller implements Initializable {
 
         WebEngine we = wv_1.getEngine();
         try {
-            URL url = new URL("http://filo5.iett.gov.tr/login.php?sayfa=");
+            //URL url = new URL("http://filo5.iett.gov.tr/login.php?sayfa=");
+            URL url = new URL("https://filotakip.iett.gov.tr/login.php");
             we.setJavaScriptEnabled(true);
             we.getLoadWorker().stateProperty().addListener(
                     (ObservableValue<? extends Worker.State> observable,
@@ -102,7 +103,7 @@ public class Filo_Captcha_Controller implements Initializable {
                         if (newValue != Worker.State.SUCCEEDED) {
                             return;
                         }
-                            we.executeScript(" " +
+                            /*we.executeScript(" " +
                                     " function hide( elem ){ if( elem != undefined ) elem.style.display = \"none\"; } "+
                                     " document.body.style.backgroundColor = \"#302e2e\"; document.body.style.overflowY = \"hidden\";" +
                                     " document.body.style.color = \"#272727\"; document.body.style.fontSize = \"0px\";" +
@@ -119,11 +120,11 @@ public class Filo_Captcha_Controller implements Initializable {
                                     " if( form_login[0] != undefined ) hide(form_login[0]); form_login[0].value=\""+login+"\"; if( form_pass[0] != undefined ) hide(form_pass[0]); form_pass[0].value=\""+password+"\";  " +
                                     " var divo = document.createElement(\"div\"); divo.id = \"hederoy\"; document.body.appendChild(divo); document.getElementById(\"hederoy\").innerHTML = document.cookie;" +
                                     " var cimg = document.getElementsByTagName(\"img\"); " +
-                                    " //hide(submitbtn[0]); //hide(cin[0]); //hide(link[0]); " );
+                                    " //hide(submitbtn[0]); //hide(cin[0]); //hide(link[0]); " );*/
 
                             //pt.play();
 
-                        /*try {
+                        try {
                             we.executeScript(" "+
                                     " function hide( elem ){ if( elem != undefined ) elem.style.display = \"none\"; } "+
                                     " var link = document.getElementsByTagName(\"a\"); link[1].style.display = \"block\"; link[1].style.position = \"relative\"; link[1].style.color= \"#fff\"; link[1].style.left = \"260px\"; link[1].style.top = \"-70px\"; link[1].style.fontFamily = \"Tahoma\"; link[1].innerHTML = \"Kodu Değiştir\";" +
@@ -143,7 +144,7 @@ public class Filo_Captcha_Controller implements Initializable {
                             );
                         } catch ( netscape.javascript.JSException e  ){
                             //listener.on_refresh();
-                        }*/
+                        }
 
                         if( wv_inited ){
                             try {
@@ -187,7 +188,8 @@ public class Filo_Captcha_Controller implements Initializable {
                 try{
                     System.out.println( "Filo phpsessid alınıyor..");
                     // random phpssid
-                    res = Jsoup.connect("http://filo5.iett.gov.tr/login.php?sayfa=/_FYS.php&aday=x")
+                    //res = Jsoup.connect("http://filo5.iett.gov.tr/login.php?sayfa=/_FYS.php&aday=x")
+                    res = Jsoup.connect("https://filotakip.iett.gov.tr/login.php")
                             .method(org.jsoup.Connection.Method.POST)
                             .timeout(0)
                             .execute();
@@ -197,11 +199,12 @@ public class Filo_Captcha_Controller implements Initializable {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            web_view_init( "dk_oasfilo", "oas-2023");
+                            web_view_init( "dk_oasfilo", "2071-oas");
                         }
                     });
                 } catch( IOException e ){
-                    System.out.println( " HATA");
+                    //System.out.println( " HATA");
+                    e.printStackTrace();
                 }
             }
         });

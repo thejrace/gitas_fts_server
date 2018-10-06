@@ -48,8 +48,8 @@ class Orer_Task extends Filo_Task {
         seferler = new ArrayList<>();
         aktif_sefer_verisi = "";
         //System.out.println("ORER download [ "+ aktif_tarih +" ] [ " + oto + " ]");
-        //org.jsoup.Connection.Response sefer_verileri_req = istek_yap("https://filotakip.iett.gov.tr/_FYS/000/sorgu.php?konum=ana&konu=sefer&otobus=");
-        org.jsoup.Connection.Response sefer_verileri_req = istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konum=ana&konu=sefer&otobus=");
+        org.jsoup.Connection.Response sefer_verileri_req = istek_yap("https://filotakip.iett.gov.tr/_FYS/000/sorgu.php?konum=ana&konu=sefer&otobus=");
+        //org.jsoup.Connection.Response sefer_verileri_req = istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konum=ana&konu=sefer&otobus=");
         Document sefer_doc = parse_html( sefer_verileri_req );
         if( mobil_flag ){
             sefer_veri_ayikla_mobil_v1(sefer_doc);
@@ -109,23 +109,40 @@ class Orer_Task extends Filo_Task {
                 cols = row.select("td");
                 try {
                     sefer = new JSONObject();
-                    String durum = Common.regex_trim(cols.get(12).text());
                     sefer.put("no", Common.regex_trim(cols.get(0).text()) );
-                    sefer.put("orer", Common.regex_trim(cols.get(7).getAllElements().get(2).text()));
-                    sefer.put("amir", Common.regex_trim(cols.get(8).text()) );
-                    sefer.put("tahmin", Common.regex_trim(cols.get(10).text()));
+                    sefer.put("orer", Common.regex_trim(cols.get(9).getAllElements().get(2).text()));
+                    sefer.put("amir", Common.regex_trim(cols.get(10).text()) );
+                    sefer.put("tahmin", Common.regex_trim(cols.get(12).text()));
+
+                    String d_dk = "";
+                    String durum = "";
+                    String dk = "";
+                    try {
+                        d_dk = cols.get(14).text();
+                        durum = d_dk.substring(0,1);
+                        dk = d_dk.substring(2, d_dk.length());
+
+                    } catch (StringIndexOutOfBoundsException e ){
+                        //e.printStackTrace();
+                    }
                     sefer.put("durum", durum);
-                    sefer.put("durum_kodu", cols.get(13).text().substring(5));
-                    if( cols.get(12).text().replaceAll("\u00A0", "").equals("A") && cols.get(3).getAllElements().size() > 2 ){
-                        sefer.put("durak", Common.regex_trim(cols.get(3).getAllElements().get(2).attr("title")));
+                    sefer.put("durum_kodu", dk);
+                    if( durum.equals("A") ){
+                        sefer.put("durak", cols.get(15).text());
                     } else {
                         sefer.put("durak", "YOK");
                     }
                     if( !hat_alindi ){
-                        hat = cols.get(1).text().trim();
-                        if( cols.get(1).text().trim().contains("!")  ) hat = cols.get(1).text().trim().substring(1, cols.get(1).text().trim().length() - 1 );
-                        if( cols.get(1).text().trim().contains("#") ) hat = cols.get(1).text().trim().substring(1, cols.get(1).text().trim().length() - 1 );
-                        if( cols.get(1).text().trim().contains("*") ) hat = cols.get(1).text().trim().substring(1, cols.get(1).text().trim().length() - 1);
+                        hat = cols.get(2).text().trim();
+                        if( cols.get(2).text().trim().contains("!")  ){
+                            hat = cols.get(2).text().trim().substring(3, cols.get(2).text().trim().length() - 1 );
+                        } else if( cols.get(2).text().trim().contains("#") ) {
+                            hat = cols.get(2).text().trim().substring(3, cols.get(2).text().trim().length() - 1 );
+                        } else  if( cols.get(2).text().trim().contains("*") ){
+                            hat = cols.get(2).text().trim().substring(3, cols.get(2).text().trim().length() - 1);
+                        } else {
+                            hat = hat.substring(2, hat.length());
+                        }
                         hat_alindi = true;
                     }
                     sefer.put("hat", hat);
@@ -205,7 +222,7 @@ class Orer_Task extends Filo_Task {
                             if (iptal_sonrasi_sefer.getString("durum").equals(Sefer_Data.DBEKLEYEN)) {
                                 ui_led = Sefer_Data.DBEKLEYEN;
                                 ui_main_notf = "Seferini Bekliyor";
-                                if (!iptal_sonrasi_sefer.getString("amir").equals("") && !iptal_sonrasi_sefer.getString("amir").equals("[ 10 5 2 ]")) {
+                                if (!iptal_sonrasi_sefer.getString("amir").equals("") && !iptal_sonrasi_sefer.getString("amir").equals("[ 10 5 2 ]") &&  !iptal_sonrasi_sefer.getString("amir").equals("[10 5 2]")) {
                                     ui_notf = "Bir sonraki sefer " + iptal_sonrasi_sefer.getString("amir") + " ( Amir )";
                                 } else {
                                     ui_notf = "Bir sonraki sefer " + iptal_sonrasi_sefer.getString("orer");
@@ -252,7 +269,7 @@ class Orer_Task extends Filo_Task {
                             if (iptal_sonrasi_sefer.getString("durum").equals(Sefer_Data.DBEKLEYEN)) {
                                 ui_led = Sefer_Data.DBEKLEYEN;
                                 ui_main_notf = "Seferini Bekliyor";
-                                if (!iptal_sonrasi_sefer.getString("amir").equals("") && !iptal_sonrasi_sefer.getString("amir").equals("[ 10 5 2 ]")) {
+                                if (!iptal_sonrasi_sefer.getString("amir").equals("") && !iptal_sonrasi_sefer.getString("amir").equals("[ 10 5 2 ]") && !iptal_sonrasi_sefer.getString("amir").equals("[10 5 2]")) {
                                     ui_notf = "Bir sonraki sefer " + iptal_sonrasi_sefer.getString("amir") + " ( Amir )";
                                 } else {
                                     ui_notf = "Bir sonraki sefer " + iptal_sonrasi_sefer.getString("orer");
@@ -278,13 +295,17 @@ class Orer_Task extends Filo_Task {
                         ui_main_notf = "Aktif Sefer " + sefer_orer + " (T " + sefer_tahmin + ")";
                     }
                     if (!sefer.getString("durak").equals("YOK")) {
-                        ui_notf = sefer.getString("durak").substring(16, sefer.getString("durak").indexOf(" ("));
+                        try {
+                            ui_notf = sefer.getString("durak").substring(0, sefer.getString("durak").indexOf(" ("));
+                        } catch( StringIndexOutOfBoundsException e ){
+                            ui_notf = "Durak bilgisi yok.";
+                        }
                     } else {
                         ui_notf = "Durak bilgisi yok.";
                     }
                     if (sonraki_sefer != null && !sefer_tahmin.equals("")) {
                         // gec kalip kalmama kontrolu
-                        if (!sonraki_sefer.getString("amir").equals("") && !sonraki_sefer.getString("amir").equals("[ 10 5 2 ]")) {
+                        if (!sonraki_sefer.getString("amir").equals("") && !sonraki_sefer.getString("amir").equals("[ 10 5 2 ]") && !sonraki_sefer.getString("amir").equals("[10 5 2]")) {
                             // bir sonraki sefere amir saat atamis
                             if (Sefer_Sure.hesapla(sefer_tahmin, sonraki_sefer.getString("amir")) < 0) {
                                 // amir saat atamis ama gene de geç kalacak
@@ -306,7 +327,7 @@ class Orer_Task extends Filo_Task {
                             // sonraki seferi var ve durumu bekleyense, bekleyen seferin saatini aliyoruz
                             ui_led = Sefer_Data.DBEKLEYEN;
                             ui_main_notf = "Seferini Bekliyor";
-                            if (!sonraki_sefer.getString("amir").equals("") && !sonraki_sefer.getString("amir").equals("[ 10 5 2 ]")) {
+                            if (!sonraki_sefer.getString("amir").equals("") && !sonraki_sefer.getString("amir").equals("[ 10 5 2 ]") && !sonraki_sefer.getString("amir").equals("[10 5 2]")) {
                                 // eger amir saat atamişsa
                                 ui_notf = "Bir sonraki sefer: " + sonraki_sefer.getString("amir") + " ( Amir )";
                                 Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.AMIR_SAAT_ATADI, Alarm_Data.MAVI, oto, Alarm_Data.MESAJ_AMIR_SAAT_ATADI, sefer_no), oto, aktif_tarih);
@@ -326,7 +347,7 @@ class Orer_Task extends Filo_Task {
                     }
                 }
                 if (sefer_durum.equals(Sefer_Data.DBEKLEYEN)) {
-                    if (!sefer_amir.equals("") && !sefer_amir.equals("[ 10 5 2 ]")) {
+                    if (!sefer_amir.equals("") && !sefer_amir.equals("[ 10 5 2 ]") && !sefer_amir.equals("[10 5 2]") ) {
                         if (Sefer_Sure.gecmis(SIMDI, sefer_amir)) {
                             Alarm_Data.db_insert(new Alarm_Data(Alarm_Data.SEFER_BASLAMADI, Alarm_Data.TURUNCU, oto, Alarm_Data.MESAJ_SEFER_BASLAMADI, sefer_no), oto, aktif_tarih );
                         }
@@ -932,7 +953,7 @@ class Orer_Task extends Filo_Task {
                     // eger veri sayilari tutuyorsa orer saatlerinin uyumuna bakiyoruz
                     for( int i = 1; i < rows_size; i++ ){
                         row = rows.get(i);
-                        orer = Common.regex_trim(row.select("td").get(7).getAllElements().get(2).text());
+                        orer = Common.regex_trim(row.select("td").get(9).getAllElements().get(2).text());
                         if( !orer.equals(son_versiyon_seferler.get(i-1).get_orer()) ){
                             orer_degismis = true;
                             break;
@@ -968,17 +989,17 @@ class Orer_Task extends Filo_Task {
                 row = rows.get(i);
                 cols = row.select("td");
 
-                orer = Common.regex_trim(cols.get(7).getAllElements().get(2).text());
+                orer = Common.regex_trim(cols.get(9).getAllElements().get(2).text());
 
                 Map<String, String> pdks_bilgileri = otobus.sefer_hmin_tara( aktif_tarih, orer );
                 surucu_sicil_no = pdks_bilgileri.get("surucu");
                 plaka = pdks_bilgileri.get("plaka");
                 //System.out.println(oto +" --> " + orer + " --> " + surucu_sicil_no +" " + plaka);
 
-                if( cols.get(12).text().replaceAll("\u00A0", "").equals("A") && cols.get(3).getAllElements().size() > 2 ) {
+                /*if( cols.get(12).text().replaceAll("\u00A0", "").equals("A") && cols.get(3).getAllElements().size() > 2 ) {
                     durak_bilgisi = cols.get(3).getAllElements().get(2).attr("title").replaceAll("\u00A0", "");
                     otobus.aktif_durak_bilgisi_guncelle( durak_bilgisi );
-                }
+                }*/
 
 
 
@@ -1007,14 +1028,20 @@ class Orer_Task extends Filo_Task {
                 }*/
 
                 if( !hat_alindi ){
-                    hat = cols.get(1).text().trim();
-                    if( cols.get(1).text().trim().contains("!")  ) hat = cols.get(1).text().trim().substring(1, cols.get(1).text().trim().length() - 1 );
-                    if( cols.get(1).text().trim().contains("#") ) hat = cols.get(1).text().trim().substring(1, cols.get(1).text().trim().length() - 1 );
-                    if( cols.get(1).text().trim().contains("*") ) hat = cols.get(1).text().trim().substring(1, cols.get(1).text().trim().length() - 1);
+                    hat = cols.get(2).text().trim();
+                    if( cols.get(2).text().trim().contains("!")  ){
+                        hat = cols.get(2).text().trim().substring(3, cols.get(2).text().trim().length() - 1 );
+                    } else if( cols.get(2).text().trim().contains("#") ) {
+                        hat = cols.get(2).text().trim().substring(3, cols.get(2).text().trim().length() - 1 );
+                    } else  if( cols.get(2).text().trim().contains("*") ){
+                        hat = cols.get(2).text().trim().substring(3, cols.get(2).text().trim().length() - 1);
+                    } else {
+                        hat = hat.substring(2, hat.length());
+                    }
                     hat_alindi = true;
                 }
 
-                tek_sefer_data = new Sefer_Data(
+                /*tek_sefer_data = new Sefer_Data(
                         Common.regex_trim(cols.get(0).text()),
                         hat,
                         Common.regex_trim(cols.get(2).text()),
@@ -1032,6 +1059,42 @@ class Orer_Task extends Filo_Task {
                         Common.regex_trim(cols.get(11).text()),
                         Common.regex_trim(cols.get(12).text()),
                         cols.get(13).text().substring(5),
+                        plaka,
+                        1,
+                        aktif_versiyon
+                );*/
+
+                String d_dk = "";
+                String durum = "";
+                String dk = "";
+                try {
+                    d_dk = cols.get(14).text();
+                    durum = d_dk.substring(0,1);
+                    dk = d_dk.substring(2, d_dk.length());
+
+                } catch (StringIndexOutOfBoundsException e ){
+                    //e.printStackTrace();
+                }
+
+
+                tek_sefer_data = new Sefer_Data(
+                        Common.regex_trim(cols.get(0).text()), // no
+                        hat, // hat
+                        Common.regex_trim(cols.get(3).text()), // servis
+                        Common.regex_trim(cols.get(4).getAllElements().get(1).text()), // guzergah
+                        Common.regex_trim(cols.get(5).text()), // oto
+                        "",
+                        surucu_sicil_no,
+                        "",
+                        Common.regex_trim(cols.get(8).text()), // gelis
+                        orer, // orer
+                        "",
+                        Common.regex_trim(cols.get(10).text()), // amir
+                        Common.regex_trim(cols.get(11).text()), // gidis
+                        Common.regex_trim(cols.get(12).text()), // tahmin
+                        Common.regex_trim(cols.get(13).text()), // bitis
+                        durum,
+                        dk,
                         plaka,
                         1,
                         aktif_versiyon

@@ -21,8 +21,8 @@ class PDKS_Task extends Filo_Task {
     public void yap(){
         if( aktif_tarih.equals("BEKLEMEDE") ) return;
         System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  "[ " + oto + " PDKS DOWNLOAD ]");
-        org.jsoup.Connection.Response pdks_req = istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konu=mesaj&mtip=PDKS&oto=");
-        //org.jsoup.Connection.Response pdks_req = istek_yap("https://filotakip.iett.gov.tr/_FYS/000/sorgu.php?konu=mesaj&mtip=PDKS&oto=");
+        //org.jsoup.Connection.Response pdks_req = istek_yap("http://filo5.iett.gov.tr/_FYS/000/sorgu.php?konu=mesaj&mtip=PDKS&oto=");
+        org.jsoup.Connection.Response pdks_req = istek_yap("https://filotakip.iett.gov.tr/_FYS/000/sorgu.php?konu=mesaj&mtip=PDKS&oto=");
         Document pdks_doc = parse_html( pdks_req );
         pdks_ayikla( pdks_doc );
     }
