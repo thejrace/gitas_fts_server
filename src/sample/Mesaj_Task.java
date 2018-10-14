@@ -67,8 +67,9 @@ class Mesaj_Task extends Filo_Task {
                     mesaj.ekle(rows.size()-i);
                 }
             }
-        } catch( NullPointerException e ){
+        } catch( Exception e ){
             e.printStackTrace();
+            Common.exception_db_kayit("Mesaj_Task.java", e.getMessage());
             System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  oto + " Mesaj veri ayıklama hatası. Tekrar deneniyor.");
             //yap();
         }

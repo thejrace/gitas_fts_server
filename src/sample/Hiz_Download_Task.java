@@ -45,8 +45,9 @@ public class Hiz_Download_Task extends Filo_Task {
             } catch( SQLException | ArrayIndexOutOfBoundsException e ){
                 e.printStackTrace();
             }
-        } catch( NullPointerException e ){
+        } catch( Exception e ){
             e.printStackTrace();
+            Common.exception_db_kayit("Hiz_Download_task.java", e.getMessage());
             System.out.println( "["+Common.get_current_hmin() + "]  "+  oto+ " Hız sefer veri ayıklama hatası. Tekrar deneniyor.");
         }
     }

@@ -142,14 +142,13 @@ public class Common {
         return hat_kodu;
     }
 
-    public static void exception_db_kayit( String hata ){
+    public static void exception_db_kayit( String etiket, String hata ){
         try {
             Connection con = DBC.getInstance().getConnection();
-            PreparedStatement pst = con.prepareStatement("INSERT INTO " + GitasDBT.SUNUCU_APP_HATA_KAYITLARI + " ( etiket, hata, tarih, durum ) VALUES ( ?, ?, ?, ? )");
-            pst.setString(1, "SUNUCU EXCEPTION" );
+            PreparedStatement pst = con.prepareStatement("INSERT INTO " + GitasDBT.SUNUCU_APP_HATA_KAYITLARI + " ( etiket, hata, tarih ) VALUES ( ?, ?, ? )");
+            pst.setString(1, etiket );
             pst.setString(2, hata );
             pst.setString(3, Common.get_current_datetime_db() );
-            pst.setInt(4, 1 );
             pst.executeUpdate();
             pst.close();
             con.close();

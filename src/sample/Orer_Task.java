@@ -83,7 +83,7 @@ class Orer_Task extends Filo_Task {
             rows = table.select("tr");
             int rows_size = rows.size();
             if( rows_size == 0 ){
-                Common.orer_degisiklik_log_kaydet(oto, aktif_tarih,"HİÇ VERİ YOK", 0, 0, rows.size() );
+                //Common.orer_degisiklik_log_kaydet(oto, aktif_tarih,"HİÇ VERİ YOK", 0, 0, rows.size() );
                 return;
             }
             if( rows_size == 1  ){
@@ -361,8 +361,9 @@ class Orer_Task extends Filo_Task {
             durum_guncelle();
             System.out.println("OADD Aksiyon [ "+ aktif_tarih +" ] [ " + oto + " ] [ OK ( "+( Common.get_unix()-start)+" sn)  ]");
             rows.clear();
-        } catch( NullPointerException e ){
+        } catch( Exception e ){
             e.printStackTrace();
+            Common.exception_db_kayit("Orer_Task.java", e.getMessage());
             System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  oto+ " ORER MOBİL sefer veri ayıklama hatası. Tekrar deneniyor.");
             //yap();
         }
@@ -919,7 +920,7 @@ class Orer_Task extends Filo_Task {
             int rows_size = rows.size();
 
             if( rows_size == 0 ){
-                Common.orer_degisiklik_log_kaydet(oto, aktif_tarih,"HİÇ VERİ YOK", 0, 0, rows.size() );
+                //Common.orer_degisiklik_log_kaydet(oto, aktif_tarih,"HİÇ VERİ YOK", 0, 0, rows.size() );
                 return;
             }
 
@@ -1134,8 +1135,9 @@ class Orer_Task extends Filo_Task {
             }
             System.out.println("ORER download [ "+ aktif_tarih +" ] [ " + oto + " ] [ OK ( "+( Common.get_unix()-start)+" sn)  ]");
             rows.clear();
-        } catch( NullPointerException e ){
+        } catch( Exception e ){
             e.printStackTrace();
+            Common.exception_db_kayit("Orer_Task.java", e.getMessage());
             System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  oto+ " ORER sefer veri ayıklama hatası. Tekrar deneniyor.");
             //yap();
         }

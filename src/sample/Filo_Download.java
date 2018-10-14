@@ -104,6 +104,7 @@ public class Filo_Download implements Runnable {
                     try {
                         Thread.sleep(60000);
                     } catch( InterruptedException e ){
+                        Common.exception_db_kayit("Filo_Download.java - main_thread", e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -193,6 +194,7 @@ public class Filo_Download implements Runnable {
                     try {
                         Thread.sleep(frekans);
                     } catch( InterruptedException e ){
+                        Common.exception_db_kayit("Filo_Download.java - eski_veri_silme_thread", e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -254,6 +256,7 @@ public class Filo_Download implements Runnable {
                     try{
                         Thread.sleep( frekans );
                     } catch( InterruptedException e ){
+                        Common.exception_db_kayit("Filo_Download.java - orer_download_thread", e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -315,6 +318,7 @@ public class Filo_Download implements Runnable {
                     try {
                         Thread.sleep(frekans);
                     } catch (InterruptedException e) {
+                        Common.exception_db_kayit("Filo_Download.java - pdks_download_thread", e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -369,6 +373,7 @@ public class Filo_Download implements Runnable {
                         Thread.sleep(frekans);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
+                        Common.exception_db_kayit("Filo_Download.java - hiz_download_thread", e.getMessage());
                     }
                 }
             }
@@ -427,6 +432,7 @@ public class Filo_Download implements Runnable {
                     try {
                         Thread.sleep(frekans);
                     } catch (InterruptedException e) {
+                        Common.exception_db_kayit("Filo_Download.java - mesaj_download_thread", e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -488,6 +494,7 @@ public class Filo_Download implements Runnable {
                     try {
                         Thread.sleep(frekans);
                     } catch (InterruptedException e) {
+                        Common.exception_db_kayit("Filo_Download.java - iys_download_thread", e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -546,6 +553,7 @@ public class Filo_Download implements Runnable {
                     try{
                         Thread.sleep( frekans );
                     } catch( InterruptedException e ){
+                        Common.exception_db_kayit("Filo_Download.java - OADD_thread", e.getMessage());
                         e.printStackTrace();
                     }
                 }

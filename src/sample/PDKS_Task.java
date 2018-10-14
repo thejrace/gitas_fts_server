@@ -83,8 +83,9 @@ class PDKS_Task extends Filo_Task {
                 cols.clear();
             }
             rows.clear();
-        } catch( NullPointerException e ){
+        } catch( Exception e ){
             System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  oto + " ORER sürücü PDKS ayıklama hatası. Tekrar deneniyor.");
+            Common.exception_db_kayit("PDKS_Task.java", e.getMessage());
             e.printStackTrace();
             yap();
         }
