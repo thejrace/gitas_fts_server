@@ -7,9 +7,7 @@ import javafx.stage.Stage;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,8 +15,6 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -142,7 +138,11 @@ public class Common {
         return hat_kodu;
     }
 
-    public static void exception_db_kayit( String etiket, String hata ){
+    public static void exception_db_kayit( String etiket, Exception exc ){
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        exc.printStackTrace(pw);
+        String hata = sw.toString(); // stack trace as a string
         try {
             Connection con = DBC.getInstance().getConnection();
             PreparedStatement pst = con.prepareStatement("INSERT INTO " + GitasDBT.SUNUCU_APP_HATA_KAYITLARI + " ( etiket, hata, tarih ) VALUES ( ?, ?, ? )");

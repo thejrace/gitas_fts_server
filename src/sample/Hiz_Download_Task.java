@@ -22,6 +22,13 @@ public class Hiz_Download_Task extends Filo_Task {
     }
     public void sefer_veri_ayikla( Document document ){
         try {
+            if( document == null ){}
+        } catch( NullPointerException e ){
+            //yap()
+            e.printStackTrace();
+            return;
+        }
+        try {
             String sayfa = document.toString();
             String data_string = sayfa.substring( sayfa.indexOf("veri_ilklendir")+14, sayfa.indexOf("veri_hatcizgi") );
             String[] exploded = data_string.split("\\|");
@@ -47,7 +54,7 @@ public class Hiz_Download_Task extends Filo_Task {
             }
         } catch( Exception e ){
             e.printStackTrace();
-            Common.exception_db_kayit("Hiz_Download_task.java", e.getMessage());
+            Common.exception_db_kayit("Hiz_Download_task.java", e );
             System.out.println( "["+Common.get_current_hmin() + "]  "+  oto+ " Hız sefer veri ayıklama hatası. Tekrar deneniyor.");
         }
     }

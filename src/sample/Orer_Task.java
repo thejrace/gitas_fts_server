@@ -67,6 +67,7 @@ class Orer_Task extends Filo_Task {
             if( document == null ){}
         } catch( NullPointerException e ){
             e.printStackTrace();
+            return;
             //yap();
         }
         Elements table = null;
@@ -363,7 +364,7 @@ class Orer_Task extends Filo_Task {
             rows.clear();
         } catch( Exception e ){
             e.printStackTrace();
-            Common.exception_db_kayit("Orer_Task.java", e.getMessage());
+            Common.exception_db_kayit("Orer_Task.java", e );
             System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  oto+ " ORER MOBİL sefer veri ayıklama hatası. Tekrar deneniyor.");
             //yap();
         }
@@ -903,6 +904,7 @@ class Orer_Task extends Filo_Task {
             if( document == null ){}
         } catch( NullPointerException e ){
             e.printStackTrace();
+            return;
             //yap();
         }
         Elements table = null;
@@ -1137,7 +1139,7 @@ class Orer_Task extends Filo_Task {
             rows.clear();
         } catch( Exception e ){
             e.printStackTrace();
-            Common.exception_db_kayit("Orer_Task.java", e.getMessage());
+            Common.exception_db_kayit("Orer_Task.java", e );
             System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  oto+ " ORER sefer veri ayıklama hatası. Tekrar deneniyor.");
             //yap();
         }

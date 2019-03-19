@@ -30,8 +30,9 @@ class PDKS_Task extends Filo_Task {
         try {
             if( document == null ){}
         } catch( NullPointerException e ){
-            yap();
+            //yap()
             e.printStackTrace();
+            return;
         }
 
         Elements table = null;
@@ -85,7 +86,7 @@ class PDKS_Task extends Filo_Task {
             rows.clear();
         } catch( Exception e ){
             System.out.println( "["+Common.get_current_hmin() + "]  "+ aktif_tarih  + " " +  oto + " ORER sürücü PDKS ayıklama hatası. Tekrar deneniyor.");
-            Common.exception_db_kayit("PDKS_Task.java", e.getMessage());
+            Common.exception_db_kayit("PDKS_Task.java", e);
             e.printStackTrace();
             yap();
         }
@@ -123,7 +124,8 @@ class PDKS_Task extends Filo_Task {
             if( document == null ){}
         } catch( NullPointerException e ){
             e.printStackTrace();
-            yap();
+            return;
+            //yap();
         }
         Elements table_sur = document.select("table");
         String surucu_string = table_sur.select("tr").get(1).getAllElements().get(2).text();
