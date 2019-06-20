@@ -26,12 +26,19 @@ public class DBC {
     private String userName = "root";
     private String password = "mEP3isJVWqYPL";*/
 
-    // LOCAL 01.05.2018
-    private String dbAddress = "jdbc:mysql://localhost:3306/";
+    // GITAS SERVER 01.05.2018
+    /*private String dbAddress = "jdbc:mysql://localhost:3306/";
     private String userPass = "?user=root&password=";
     private String dbName = "ahmet";
     private String userName = "ahmet";
-    private String password = "KHLHjklh654";
+    private String password = "KHLHjklh654";*/
+
+    // LOCAL 2019
+    private String dbAddress = "jdbc:mysql://localhost:3306/";
+    private String userPass = "?user=root&password=";
+    private String dbName = "db3_gitas_filo_takip";
+    private String userName = "root";
+    private String password = "";
 
 
     private DBC(){

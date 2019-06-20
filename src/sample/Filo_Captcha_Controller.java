@@ -189,7 +189,7 @@ public class Filo_Captcha_Controller implements Initializable {
                     System.out.println( "Filo phpsessid alınıyor..");
                     // random phpssid
                     //res = Jsoup.connect("http://filo5.iett.gov.tr/login.php?sayfa=/_FYS.php&aday=x")
-                    res = Jsoup.connect("https://filotakip.iett.gov.tr/login.php")
+                    res = Jsoup.connect("https://filotakip.iett.gov.tr")
                             .method(org.jsoup.Connection.Method.POST)
                             .timeout(0)
                             .execute();
