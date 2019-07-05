@@ -27,18 +27,18 @@ public class DBC {
     private String password = "mEP3isJVWqYPL";*/
 
     // GITAS SERVER 01.05.2018
-    /*private String dbAddress = "jdbc:mysql://localhost:3306/";
+    private String dbAddress = "jdbc:mysql://localhost:3306/";
     private String userPass = "?user=root&password=";
     private String dbName = "ahmet";
     private String userName = "ahmet";
-    private String password = "KHLHjklh654";*/
+    private String password = "KHLHjklh654";
 
     // LOCAL 2019
-    private String dbAddress = "jdbc:mysql://localhost:3306/";
+    /*private String dbAddress = "jdbc:mysql://localhost:3306/";
     private String userPass = "?user=root&password=";
     private String dbName = "db3_gitas_filo_takip";
     private String userName = "root";
-    private String password = "";
+    private String password = "";*/
 
 
     private DBC(){
@@ -47,7 +47,7 @@ public class DBC {
         ds.setDriverClassName("com.mysql.jdbc.Driver");
         ds.setUsername(userName);
         ds.setPassword(password);
-        ds.setUrl(dbAddress + dbName + "?useSSL=false");
+        ds.setUrl(dbAddress + dbName + "?useSSL=false&useJvmCharsetConverters=false&useDynamicCharsetInfo=false&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useEncoding=true");
 
         ds.setMinIdle(15);
         ds.setMaxIdle(30);
