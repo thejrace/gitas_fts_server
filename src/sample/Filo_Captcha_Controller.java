@@ -44,7 +44,7 @@ public class Filo_Captcha_Controller implements Initializable {
 
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-        random_sessid_al();
+        //random_sessid_al();
     }
 
     public void add_finish_listener( Refresh_Listener _listener ){

@@ -42,7 +42,14 @@ public class Filo_Captcha_Scene extends Application {
                 }
             });
 
-            controller.add_finish_listener(new Refresh_Listener() {
+            Filo_Login login = new Filo_Login();
+            login.addListener(() -> {
+                Filo_Download fd = new Filo_Download();
+                fd.start();
+            });
+            login.action();
+
+            /*controller.add_finish_listener(new Refresh_Listener() {
                 @Override
                 public void on_refresh() {
                     try{
@@ -66,7 +73,7 @@ public class Filo_Captcha_Scene extends Application {
                         e.printStackTrace();
                     }
                 }
-            });
+            });*/
 
         } catch( Exception e ){
             e.printStackTrace();
